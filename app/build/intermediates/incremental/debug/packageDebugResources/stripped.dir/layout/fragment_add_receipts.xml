@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddReceiptsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/addImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginEnd="311dp"
+            android:background="@color/white"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_add_circle_outline_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.147" />
+
+        <TextView
+            android:id="@+id/addImageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="181dp"
+            android:layout_marginBottom="596dp"
+            android:text="@string/add_image_of_the_recipe"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toEndOf="@+id/addImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+        <TextView
+            android:id="@+id/addRecipeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="125dp"
+            android:fontFamily="@font/tinos"
+            android:text="@string/add_recipe"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/addBioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="76dp"
+            android:background="@color/white"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_add_circle_outline_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addImageButton" />
+
+        <Button
+            android:id="@+id/submiteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:layout_marginBottom="16dp"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/addBioTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="104dp"
+            android:text="Add A Bio/Description"
+            app:layout_constraintStart_toEndOf="@+id/addBioButton"
+            app:layout_constraintTop_toBottomOf="@+id/addImageTitle" />
+
+        <ImageButton
+            android:id="@+id/addIngerdientsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="76dp"
+            android:background="@color/white"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_add_circle_outline_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addBioButton" />
+
+        <TextView
+            android:id="@+id/addIngeridentsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="104dp"
+            android:text="Add Igneridents/Instructions"
+            app:layout_constraintStart_toEndOf="@+id/addIngerdientsButton"
+            app:layout_constraintTop_toBottomOf="@+id/addBioTitle" />
+
+        <ImageButton
+            android:id="@+id/addCookTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="72dp"
+            android:layout_marginTop="76dp"
+            android:background="@color/white"
+            android:minHeight="48dp"
+            android:src="@drawable/baseline_add_circle_outline_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addIngerdientsButton" />
+
+        <TextView
+            android:id="@+id/addCookTImeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="104dp"
+            android:text="Add Cook Time And Rating"
+            app:layout_constraintStart_toEndOf="@+id/addCookTimeButton"
+            app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="70dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/addImageButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider7"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/addBioButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addImageButton" />
+
+        <View
+            android:id="@+id/divider8"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/addIngerdientsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addBioButton" />
+
+        <View
+            android:id="@+id/divider9"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toTopOf="@+id/addCookTimeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addIngerdientsButton" />
+
+        <View
+            android:id="@+id/divider10"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="130dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addCookTimeButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_search.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_search_bar.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\search_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_arrow_forward_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_arrow_forward_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xhdpi_ic_feasthublogo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xhdpi\\ic_feasthublogo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_add_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_add_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_rounded_rectangle.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\rounded_rectangle.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\font_tinos.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\font\\tinos.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.feasthub.app-merged_res-29:/layout_fragment_add_receipts.xml.flat",
+        "source": "com.example.feasthub.app-main-31:/layout/fragment_add_receipts.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_home_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_add_circle_outline_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_add_circle_outline_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_recent.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_recent.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_lunch.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\lunch.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxhdpi_ic_feasthublogo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxhdpi\\ic_feasthublogo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_dinner.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_dinner.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_search_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_search_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_account.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxxhdpi_ic_feasthublogo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxxhdpi\\ic_feasthublogo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-mdpi_ic_feasthublogo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-mdpi\\ic_feasthublogo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_dinner.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\dinner.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-hdpi_ic_feasthublogo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-hdpi\\ic_feasthublogo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-anydpi-v33\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_add_receipts.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_add_receipts.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_snacks.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\snacks.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_time_of_day.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_time_of_day.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_breakfest.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\breakfest.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_account_circle_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_lunch.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_lunch.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_recipe_cards.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\recipe_cards.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_logo.png.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\drawable_baseline_arrow_back_24.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\drawable\\baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_breakfast.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_breakfast.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\layout_fragment_snacks.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\layout\\fragment_snacks.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-merged_res-29:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\scaaj\\.gradle\\daemon\\7.5\\com.example.feasthub.app-main-31:\\xml\\backup_rules.xml"
+    }
+]
