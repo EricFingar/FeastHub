@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.addReceipts:
                     replaceFragment(new AddReceiptsFragment());
                     break;
+                case R.id.pantry:
+                    replaceFragment(new PantryFragment());
+                    break;
                 case R.id.account:
                     replaceFragment(new AccountFragment());
                     break;
