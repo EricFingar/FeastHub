@@ -17,6 +17,7 @@
             android:layout_marginStart="52dp"
             android:layout_marginEnd="311dp"
             android:background="@color/white"
+            android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/baseline_add_circle_outline_24"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -74,10 +75,10 @@
             android:id="@+id/addIngeridentsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/tinos"
-            android:text="Add Igneridents"
+            android:text="Add Ingredients"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider9" />
@@ -87,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="109dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="23dp"
             android:layout_marginEnd="140dp"
             android:fontFamily="@font/tinos"
             android:text="Add Cook Time "
@@ -122,12 +123,12 @@
             android:id="@+id/divider8"
             android:layout_width="409dp"
             android:layout_height="1dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="28dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
         <View
             android:id="@+id/divider9"
@@ -144,11 +145,13 @@
             android:id="@+id/divider10"
             android:layout_width="409dp"
             android:layout_height="1dp"
+            android:layout_marginTop="54dp"
             android:layout_marginBottom="100dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <EditText
             android:id="@+id/editTextTextPersonName4"
@@ -158,20 +161,20 @@
             android:layout_marginTop="12dp"
             android:ems="10"
             android:hint="Description of the meal"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addBioTitle" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName6"
+            android:id="@+id/ingerdientsInput"
             android:layout_width="318dp"
-            android:layout_height="42dp"
+            android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="30dp"
             android:ems="10"
             android:hint="Add Ingredients"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.595"
             app:layout_constraintStart_toStartOf="parent"
@@ -182,36 +185,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="4dp"
             android:fontFamily="@font/tinos"
             android:text="Add Cooking Instruction"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+            app:layout_constraintBottom_toTopOf="@+id/editTextTime"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-        <EditText
-            android:id="@+id/editTextTextPersonName7"
-            android:layout_width="319dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/tinos"
-            android:hint="Add Cooking instructions"
-            android:inputType="textPersonName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
         <EditText
             android:id="@+id/editTextTextPersonName8"
             android:layout_width="318dp"
-            android:layout_height="41dp"
+            android:layout_height="48dp"
             android:layout_marginStart="44dp"
             android:layout_marginTop="8dp"
             android:ems="10"
             android:fontFamily="@font/tinos"
             android:hint="Add cook time"
-            android:inputType="textPersonName"
+            android:inputType="time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addCookTImeTitle" />
 
@@ -241,11 +234,25 @@
             android:id="@+id/addRecipeSubmitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="154dp"
-            android:layout_marginBottom="32dp"
-            android:textColor="@color/black"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="36dp"
             android:text="SUBMIT"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="315dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginBottom="52dp"
+            android:ems="10"
+            android:hint="Add Instructions"
+            android:inputType="textMultiLine"
+            app:layout_constraintBottom_toTopOf="@+id/addCookTImeTitle"
             app:layout_constraintStart_toStartOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

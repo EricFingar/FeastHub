@@ -26,5 +26,6 @@
     <string name="units">Units</string>
     <string name="recipes">My Recipes</string>
     <string name="pantry">Pantry</string>
+    <string name="ingredients"></string>
 
 </resources>
