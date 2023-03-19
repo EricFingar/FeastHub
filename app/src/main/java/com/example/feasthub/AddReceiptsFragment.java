@@ -2,6 +2,7 @@ package com.example.feasthub;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -15,9 +16,15 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AddReceiptsFragment extends Fragment {
     private View view;
@@ -54,8 +61,33 @@ public class AddReceiptsFragment extends Fragment {
                 String CookTimeText = cookTimeInput.getText().toString();
                 Float rateScore = ratingBar.getRating();
 
-                Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
-                uploadedMSG.show();
+
+
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                Map<String,Object> user = new HashMap<>();
+                user.put("Description",descText);
+                user.put("Ingredients",ingredText);
+                user.put("Cooking Instructions",cookInstrText);
+                user.put("Cook Time",CookTimeText);
+                user.put("Rating",rateScore);
+
+                db.collection("Recipe").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
+                        uploadedMSG.show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Snackbar uploadedMSG = Snackbar.make(view, "Recipe has failed to upload", 500);
+                        uploadedMSG.show();
+                    }
+                });
+
+
+
             }
         });
     }
