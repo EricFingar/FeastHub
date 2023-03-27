@@ -10,6 +10,18 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
+        <EditText
+            android:id="@+id/Title"
+            android:layout_width="306dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="7dp"
+            android:ems="10"
+            android:hint="Title fo the meal"
+            android:inputType="textMultiLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addBioTitle2" />
+
         <ImageButton
             android:id="@+id/addImageButton"
             android:layout_width="wrap_content"
@@ -22,28 +34,25 @@
             android:src="@drawable/baseline_add_circle_outline_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.147" />
+            app:layout_constraintVertical_bias="0.103" />
 
         <TextView
             android:id="@+id/addImageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="72dp"
-            android:layout_marginTop="25dp"
             android:layout_marginEnd="181dp"
-            android:layout_marginBottom="545dp"
+            android:layout_marginBottom="628dp"
             android:fontFamily="@font/tinos"
             android:text="@string/add_image_of_the_recipe"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toEndOf="@+id/addImageButton"
-            app:layout_constraintTop_toBottomOf="@+id/divider6"
-            app:layout_constraintVertical_bias="0.089" />
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toEndOf="@+id/addImageButton" />
 
         <TextView
             android:id="@+id/addRecipeTitle"
@@ -63,20 +72,32 @@
             android:id="@+id/addBioTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="1dp"
             android:fontFamily="@font/tinos"
             android:text="Add A Description"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addImageTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/Title" />
+
+        <TextView
+            android:id="@+id/addBioTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/tinos"
+            android:text="Add A Title"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
         <TextView
             android:id="@+id/addIngeridentsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="124dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/tinos"
             android:text="Add Ingredients"
             android:textColor="@color/black"
@@ -104,7 +125,6 @@
             android:layout_height="1dp"
             android:layout_marginTop="70dp"
             android:background="?android:attr/listDivider"
-            app:layout_constraintBottom_toTopOf="@+id/addImageButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +133,6 @@
             android:id="@+id/divider7"
             android:layout_width="409dp"
             android:layout_height="1dp"
-            android:layout_marginTop="12dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +142,7 @@
             android:id="@+id/divider8"
             android:layout_width="409dp"
             android:layout_height="1dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="7dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -134,7 +153,6 @@
             android:id="@+id/divider9"
             android:layout_width="409dp"
             android:layout_height="1dp"
-            android:layout_marginTop="7dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -158,7 +176,7 @@
             android:layout_width="306dp"
             android:layout_height="55dp"
             android:layout_marginStart="44dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="5dp"
             android:ems="10"
             android:hint="Description of the meal"
             android:inputType="textMultiLine"
@@ -170,13 +188,13 @@
             android:layout_width="318dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="30dp"
             android:ems="10"
             android:hint="Add Ingredients"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintHorizontal_bias="0.638"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle" />
 
@@ -246,12 +264,12 @@
             android:layout_width="315dp"
             android:layout_height="48dp"
             android:layout_marginStart="44dp"
-            android:layout_marginBottom="52dp"
+            android:layout_marginTop="4dp"
             android:ems="10"
             android:hint="Add Instructions"
             android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/addCookTImeTitle"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

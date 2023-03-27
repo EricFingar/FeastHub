@@ -46,6 +46,7 @@ public class AddReceiptsFragment extends Fragment {
 
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.addRecipeSubmitButton);
+        EditText title = (EditText) view.findViewById(R.id.Title);
         EditText descriptInput = (EditText) view.findViewById(R.id.descriptionInput);
         EditText ingredInput = (EditText) view.findViewById(R.id.ingredientsInput);
         EditText cookInstructionInput = (EditText) view.findViewById(R.id.cookInstructionInput);
@@ -60,12 +61,14 @@ public class AddReceiptsFragment extends Fragment {
                 String cookInstrText = cookInstructionInput.getText().toString();
                 String CookTimeText = cookTimeInput.getText().toString();
                 Float rateScore = ratingBar.getRating();
+                String reciepTitle = title.getText().toString();
 
 
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
                 Map<String,Object> user = new HashMap<>();
+                user.put("Title", reciepTitle);
                 user.put("Description",descText);
                 user.put("Ingredients",ingredText);
                 user.put("Cooking Instructions",cookInstrText);
@@ -75,6 +78,14 @@ public class AddReceiptsFragment extends Fragment {
                 db.collection("Recipe").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        title.setText("");
+                        descriptInput.setText("");
+                        ingredInput.setText("");
+                        ingredInput.setText("");
+                        cookInstructionInput.setText("");
+                        cookTimeInput.setText("");
+                        ratingBar.setRating(0F);
+
                         Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                         uploadedMSG.show();
                     }
