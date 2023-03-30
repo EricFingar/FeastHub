@@ -57,65 +57,8 @@ public class PantryFragment extends Fragment {
         ArrayList<String> rate = new ArrayList<String>();
 
         ListView fruit = view.findViewById(R.id.fruitList);
-        data.collection("RecipeTest").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                if(error != null){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                }
-                for(DocumentChange documentChange : value.getDocumentChanges()){
-                    String nameRecipe = documentChange.getDocument().getData().get("Title").toString();
-                    name.add(nameRecipe);
-                    String CookTime = documentChange.getDocument().getData().get("Cook Time").toString();
-                    cookT.add(CookTime);
-                    String CookingInst = documentChange.getDocument().getData().get("Cooking Instructions").toString();
-                    cookInst.add(CookingInst);
-                    String Descript = documentChange.getDocument().getData().get("Description").toString();
-                    descript.add(Descript);
-                    String Ingred = documentChange.getDocument().getData().get("Ingredients").toString();
-                    Ingr.add(Ingred);
-                    String rating = documentChange.getDocument().getData().get("Rating").toString();
-                    rate.add(rating);
-
-                    fruitAdapter fruitAd = new fruitAdapter(name);
-                    fruit.setAdapter(fruitAd);
-
-
-                }
-            }
-        });
-
-    }
-}
-
-class fruitAdapter extends BaseAdapter {
-
-    List<String> items;
-
-    public fruitAdapter(List<String> items){
-        super();
-        this.items = items;
-    }
-
-    @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return items.get(i);
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return items.get(i).hashCode();
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        TextView textView = new TextView(view.getContext());
-        textView.setText(items.get(i));
-        return textView;
+        
     }
 }
