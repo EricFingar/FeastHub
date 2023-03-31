@@ -20,7 +20,6 @@ import android.widget.RatingBar;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -58,6 +57,10 @@ public class AddReceiptsFragment extends Fragment {
         CheckBox dairy = (CheckBox) view.findViewById(R.id.dairyCheckBox);
         CheckBox vegetables = (CheckBox) view.findViewById(R.id.vegetablesCheckBox);
         CheckBox protein = (CheckBox) view.findViewById(R.id.proteinCheckBox);
+        CheckBox breakfast = (CheckBox) view.findViewById(R.id.breakfastCheckBox);
+        CheckBox lunch = (CheckBox) view.findViewById(R.id.lunchCheckBox);
+        CheckBox dinner = (CheckBox) view.findViewById(R.id.dinnerCheckBox);
+        CheckBox snacks = (CheckBox) view.findViewById(R.id.snacksCheckBox);
 
 
 
@@ -101,6 +104,10 @@ public class AddReceiptsFragment extends Fragment {
                             dairy.setChecked(false);
                             vegetables.setChecked(false);
                             protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -130,6 +137,10 @@ public class AddReceiptsFragment extends Fragment {
                             dairy.setChecked(false);
                             vegetables.setChecked(false);
                             protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -160,6 +171,10 @@ public class AddReceiptsFragment extends Fragment {
                             dairy.setChecked(false);
                             vegetables.setChecked(false);
                             protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -188,6 +203,10 @@ public class AddReceiptsFragment extends Fragment {
                             dairy.setChecked(false);
                             vegetables.setChecked(false);
                             protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -216,6 +235,10 @@ public class AddReceiptsFragment extends Fragment {
                             dairy.setChecked(false);
                             vegetables.setChecked(false);
                             protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -229,11 +252,141 @@ public class AddReceiptsFragment extends Fragment {
                     });;
                 }
 
+                if (breakfast.isChecked()){
+                    db.collection("Breakfast").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            title.setText("");
+                            descriptInput.setText("");
+                            ingredInput.setText("");
+                            ingredInput.setText("");
+                            cookInstructionInput.setText("");
+                            cookTimeInput.setText("");
+                            ratingBar.setRating(0F);
+                            fruit.setChecked(false);
+                            grain.setChecked(false);
+                            dairy.setChecked(false);
+                            vegetables.setChecked(false);
+                            protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
 
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
+                            uploadedMSG.show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has failed to upload", 500);
+                            uploadedMSG.show();
+                        }
+                    });;
+                }
 
+                if (lunch.isChecked()){
+                    db.collection("Lunch").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            title.setText("");
+                            descriptInput.setText("");
+                            ingredInput.setText("");
+                            ingredInput.setText("");
+                            cookInstructionInput.setText("");
+                            cookTimeInput.setText("");
+                            ratingBar.setRating(0F);
+                            fruit.setChecked(false);
+                            grain.setChecked(false);
+                            dairy.setChecked(false);
+                            vegetables.setChecked(false);
+                            protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
+
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
+                            uploadedMSG.show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has failed to upload", 500);
+                            uploadedMSG.show();
+                        }
+                    });;
+                }
+
+                if (dinner.isChecked()){
+                    db.collection("Dinner").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            title.setText("");
+                            descriptInput.setText("");
+                            ingredInput.setText("");
+                            ingredInput.setText("");
+                            cookInstructionInput.setText("");
+                            cookTimeInput.setText("");
+                            ratingBar.setRating(0F);
+                            fruit.setChecked(false);
+                            grain.setChecked(false);
+                            dairy.setChecked(false);
+                            vegetables.setChecked(false);
+                            protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
+
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
+                            uploadedMSG.show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has failed to upload", 500);
+                            uploadedMSG.show();
+                        }
+                    });;
+                }
+
+                if (snacks.isChecked()){
+                    db.collection("Snacks").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            title.setText("");
+                            descriptInput.setText("");
+                            ingredInput.setText("");
+                            ingredInput.setText("");
+                            cookInstructionInput.setText("");
+                            cookTimeInput.setText("");
+                            ratingBar.setRating(0F);
+                            fruit.setChecked(false);
+                            grain.setChecked(false);
+                            dairy.setChecked(false);
+                            vegetables.setChecked(false);
+                            protein.setChecked(false);
+                            breakfast.setChecked(false);
+                            lunch.setChecked(false);
+                            dinner.setChecked(false);
+                            snacks.setChecked(false);
+
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
+                            uploadedMSG.show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar uploadedMSG = Snackbar.make(view, "Recipe has failed to upload", 500);
+                            uploadedMSG.show();
+                        }
+                    });;
+                }
             }
         });
     }
+
 
 
 }
