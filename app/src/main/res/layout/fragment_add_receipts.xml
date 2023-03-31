@@ -29,7 +29,7 @@
             android:layout_marginTop="192dp"
             android:ems="10"
             android:hint="Cooking Time"
-            android:inputType="textMultiLine"
+            android:inputType="time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle2" />
 
@@ -218,7 +218,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="Title fo the meal"
+            android:hint="Title of the meal"
             android:inputType="textMultiLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addBioTitle3" />
@@ -313,17 +313,17 @@
             app:layout_constraintTop_toBottomOf="@+id/divider13" />
 
         <CheckBox
-            android:id="@+id/fruitCheckBox4"
+            android:id="@+id/vegetablesCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginTop="16dp"
             android:text="Vegetables"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fruitCheckBox2" />
+            app:layout_constraintTop_toBottomOf="@+id/gainCheckBox" />
 
         <CheckBox
-            android:id="@+id/fruitCheckBox2"
+            android:id="@+id/gainCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -333,24 +333,24 @@
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
         <CheckBox
-            android:id="@+id/fruitCheckBox3"
+            android:id="@+id/dairyCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="132dp"
             android:text="Dairy"
-            app:layout_constraintStart_toEndOf="@+id/fruitCheckBox2"
+            app:layout_constraintStart_toEndOf="@+id/gainCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/divider13" />
 
         <CheckBox
-            android:id="@+id/fruitCheckBox5"
+            android:id="@+id/proteinCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="15dp"
             android:text="Protein"
-            app:layout_constraintStart_toEndOf="@+id/fruitCheckBox4"
-            app:layout_constraintTop_toBottomOf="@+id/fruitCheckBox3" />
+            app:layout_constraintStart_toEndOf="@+id/vegetablesCheckBox"
+            app:layout_constraintTop_toBottomOf="@+id/dairyCheckBox" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -9,8 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Clearing input on add recipe page and added a new input for title. Code in the PantryFragment for the lists do not currently work">
+    <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Most of the front end pages">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AddReceiptsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AddReceiptsFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_receipts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_receipts.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +195,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Most of the front end pages" />
-    <MESSAGE value="Clearing input on add recipe page and added a new input for title. Code in the PantryFragment for the lists do not currently work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clearing input on add recipe page and added a new input for title. Code in the PantryFragment for the lists do not currently work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Most of the front end pages" />
   </component>
 </project>
