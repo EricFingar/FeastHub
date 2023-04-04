@@ -27,5 +27,6 @@
     <string name="recipes">My Recipes</string>
     <string name="pantry">Pantry</string>
     <string name="ingredients"></string>
+    <string name="recipe_name" />
 
 </resources>

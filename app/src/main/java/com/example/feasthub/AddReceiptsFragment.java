@@ -352,7 +352,8 @@ public class AddReceiptsFragment extends Fragment {
                 }
 
                 if (snacks.isChecked()){
-                    db.collection("Snacks").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Snacks" +
+                            "").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
