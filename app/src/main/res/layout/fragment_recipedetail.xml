@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="415dp"
-            android:layout_height="299dp"
+            android:layout_width="414dp"
+            android:layout_height="295dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toTopOf="@+id/recipeName"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +72,7 @@
             android:layout_height="43dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/tinos"
+            android:textColor="@color/black"
             android:text="TextView"
             android:textAlignment="center"
             android:textSize="35dp"
@@ -88,6 +89,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipeName" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/baseline_cancel_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

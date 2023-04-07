@@ -11,8 +11,15 @@
   <component name="ChangeListManager">
     <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Most of the front end pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/BreakfastFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/BreakfastFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/DinnerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/DinnerFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/LunchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/LunchFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/MyRecipesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/MyRecipesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/SnacksFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/SnacksFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/TimeOfDayFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/TimeOfDayFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_time_of_day.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_time_of_day.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SET_USER_NAME_GLOBALLY" value="false" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

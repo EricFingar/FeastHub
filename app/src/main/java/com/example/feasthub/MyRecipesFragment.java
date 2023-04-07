@@ -72,7 +72,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast","True","False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -103,7 +103,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch","True"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -134,7 +134,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner","True"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -164,7 +164,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","True"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 

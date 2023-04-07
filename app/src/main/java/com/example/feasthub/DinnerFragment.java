@@ -73,7 +73,7 @@ public class DinnerFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner", "False","False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 

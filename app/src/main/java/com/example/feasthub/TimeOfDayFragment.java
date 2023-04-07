@@ -81,7 +81,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -113,7 +113,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -144,7 +144,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -176,7 +176,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -208,7 +208,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -239,7 +239,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -271,7 +271,7 @@ public class TimeOfDayFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","False","True"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
