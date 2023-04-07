@@ -34,4 +34,6 @@ public class recipeGVAdapter extends ArrayAdapter<recipeModel>{
         recipeIV.setImageResource(recipeModel.getImgid());
         return listitemView;
     }
+
+
 }

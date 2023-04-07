@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 
@@ -64,5 +65,23 @@ public class LunchFragment extends Fragment {
                 recipeCards.setAdapter(adapter);
             }
         });
+
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
     }
+
+
 }

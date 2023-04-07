@@ -33,6 +33,7 @@ public class AddReceiptsFragment extends Fragment {
     private List<String> list;
     private ArrayAdapter<String> arrayAdapter;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

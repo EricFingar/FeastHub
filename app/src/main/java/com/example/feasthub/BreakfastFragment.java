@@ -9,10 +9,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +31,7 @@ import java.util.List;
 public class BreakfastFragment extends Fragment {
 
     private View view;
+    private String name;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,10 +68,28 @@ public class BreakfastFragment extends Fragment {
                         recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
                     }
                 }
+
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
                 recipeCards.setAdapter(adapter);
             }
         });
+
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+
     }
 
 }

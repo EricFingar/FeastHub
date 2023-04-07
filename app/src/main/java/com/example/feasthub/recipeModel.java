@@ -5,8 +5,8 @@ public class recipeModel {
     private String recipe_name;
     private int imgid;
 
-    public recipeModel(String course_name, int imgid) {
-        this.recipe_name = course_name;
+    public recipeModel(String recipe_name, int imgid) {
+        this.recipe_name = recipe_name;
         this.imgid = imgid;
     }
 
@@ -25,4 +25,9 @@ public class recipeModel {
     public void setImgid(int imgid) {
         this.imgid = imgid;
     }
+
+    public Object getItem(int position){
+        return null;
+    }
+
 }

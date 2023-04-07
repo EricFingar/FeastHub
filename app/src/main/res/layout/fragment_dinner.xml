@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="681dp"
             android:horizontalSpacing="6dp"
+            android:scrollbars="vertical"
             android:numColumns="2"
             android:verticalSpacing="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
