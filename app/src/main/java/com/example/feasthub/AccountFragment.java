@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -34,6 +35,7 @@ public class AccountFragment extends Fragment {
         view =  inflater.inflate(R.layout.fragment_account, container, false);
         myRecipesButton();
         editAccountButton();
+        getMyRecipeCard();
         return view;
     }
 
@@ -60,6 +62,132 @@ public class AccountFragment extends Fragment {
             }
         });
     }
+    private void getMyRecipeCard(){
+        GridView recipeCards = (GridView) view.findViewById(R.id.accountMyRecipeGrid);
+        ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
+        db.collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //List<String> ids = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String id = document.getId();
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
+                    }
+                }
+                recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
+                recipeCards.setAdapter(adapter);
+            }
+        });
 
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast","True","False"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+
+        db.collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //List<String> ids = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String id = document.getId();
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                    }
+                }
+                recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
+                recipeCards.setAdapter(adapter);
+            }
+        });
+
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch","True","False"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+
+        db.collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //List<String> ids = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String id = document.getId();
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.dinner));
+                    }
+                }
+                recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
+                recipeCards.setAdapter(adapter);
+            }
+        });
+
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner","True","False"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+
+        db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //List<String> ids = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String id = document.getId();
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                    }
+                }
+                recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
+                recipeCards.setAdapter(adapter);
+            }
+        });
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","True","False"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+
+    }
 }
 

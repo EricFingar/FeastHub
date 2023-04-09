@@ -82,7 +82,7 @@ public class AddReceiptsFragment extends Fragment {
 
 
                 Map<String,Object> user = new HashMap<>();
-                //user.put("Title", recipeTitle);
+                user.put("Title", recipeTitle);
                 user.put("Description",descText);
                 user.put("Ingredients",ingredText);
                 user.put("Cooking Instructions",cookInstrText);
