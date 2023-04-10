@@ -53,6 +53,7 @@ public class BreakfastFragment extends Fragment {
                 fr.commit();
             }
         });
+
     }
 
     private void getBreakfastRecipeCard(){
@@ -91,5 +92,7 @@ public class BreakfastFragment extends Fragment {
         });
 
     }
+
+
 
 }
