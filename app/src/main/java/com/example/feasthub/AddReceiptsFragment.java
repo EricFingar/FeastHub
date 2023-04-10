@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +53,6 @@ public class AddReceiptsFragment extends Fragment {
         EditText descriptInput = (EditText) view.findViewById(R.id.descriptionInput);
         EditText ingredInput = (EditText) view.findViewById(R.id.ingredientsInput);
         EditText cookInstructionInput = (EditText) view.findViewById(R.id.cookInstructionInput);
-        EditText cookTimeInput = (EditText) view.findViewById(R.id.cookTimeInput);
         RatingBar ratingBar = (RatingBar) view.findViewById(R.id.ratingBar);
         CheckBox fruit = (CheckBox) view.findViewById(R.id.fruitCheckBox);
         CheckBox grain = (CheckBox) view.findViewById(R.id.gainCheckBox);
@@ -73,6 +71,10 @@ public class AddReceiptsFragment extends Fragment {
         ImageButton removeInstruction = (ImageButton) view.findViewById(R.id.removeInstructionButton);
         ListView instructions = (ListView) view.findViewById(R.id.cookingInstructionList);
         List<String> instruct = new ArrayList<>();
+        EditText hr = (EditText) view.findViewById(R.id.cookTimeInputHR);
+        EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
+        EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,8 +118,9 @@ public class AddReceiptsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String descText = descriptInput.getText().toString();
-                String cookInstrText = cookInstructionInput.getText().toString();
-                String CookTimeText = cookTimeInput.getText().toString();
+                int CookTimeHrText = Integer.parseInt(hr.getText().toString());
+                int CookTimeMinText = Integer.parseInt(min.getText().toString());
+                int CookTimeSecText = Integer.parseInt(sec.getText().toString());
                 Float rateScore = ratingBar.getRating();
                 String recipeTitle = title.getText().toString();
 
@@ -132,7 +135,9 @@ public class AddReceiptsFragment extends Fragment {
                 user.put("Description",descText);
                 user.put("Ingredients",ing);
                 user.put("Cooking Instructions",instruct);
-                user.put("Cook Time",CookTimeText);
+                user.put("Cook Time HR",CookTimeHrText);
+                user.put("Cook Time Min", CookTimeMinText);
+                user.put("Cook Time Sec", CookTimeSecText);
                 user.put("Rating",rateScore);
 
                 if (fruit.isChecked()){
@@ -144,7 +149,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -187,7 +194,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -200,6 +209,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -224,7 +239,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -237,6 +254,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -261,7 +284,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -274,6 +299,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -298,7 +329,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -311,6 +344,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -336,7 +375,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -349,6 +390,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -374,7 +421,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -387,6 +436,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -412,7 +467,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -425,6 +482,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();
@@ -449,7 +512,9 @@ public class AddReceiptsFragment extends Fragment {
                             ingredInput.setText("");
                             ingredInput.setText("");
                             cookInstructionInput.setText("");
-                            cookTimeInput.setText("");
+                            hr.setText("");
+                            min.setText("");
+                            sec.setText("");
                             ratingBar.setRating(0F);
                             fruit.setChecked(false);
                             grain.setChecked(false);
@@ -462,6 +527,12 @@ public class AddReceiptsFragment extends Fragment {
                             snacks.setChecked(false);
                             ing.clear();
                             instruct.clear();
+
+                            ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,instruct);
+                            instructions.setAdapter(arrayInstructions);
+
+                            ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1,ing);
+                            ingredients.setAdapter(arrayIngredients);
 
                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been uploaded to the database", 500);
                             uploadedMSG.show();

@@ -1,10 +1,15 @@
 package com.example.feasthub;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,8 +24,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class recipeDetailsFragment extends Fragment {
     private View view;
+    private int counter;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -37,13 +49,64 @@ public class recipeDetailsFragment extends Fragment {
         title.setText(recipeName);
 
         TextView description = (TextView) view.findViewById(R.id.recipeDescription);
+        ListView Ingredientslist = (ListView) view.findViewById(R.id.IngridentsListTemp);
+        ListView Instructionlist = (ListView) view.findViewById(R.id.InstructionListTemp);
+        RatingBar rate = (RatingBar) view.findViewById(R.id.ratingRecipe);
+        Button start = (Button) view.findViewById(R.id.startButton);
+        Button restart = (Button) view.findViewById(R.id.restartButton);
+        Button stop = (Button) view.findViewById(R.id.stopButton);
+        TextView timer = (TextView) view.findViewById(R.id.timer);
+
         db.collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     String descrip = document.getString("Description");
                     description.setText(descrip);
+
+                    List<String> ingredients = (List<String>) document.get("Ingredients");
+
+                    ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, ingredients);
+                    Ingredientslist.setAdapter(arrayIngredients);
+
+                    List<String> instructions = (List<String>) document.get("Ingredients");
+
+                    ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, instructions);
+                    Instructionlist.setAdapter(arrayInstructions);
+
+                    float rating = document.getLong("Rating");
+                    rate.setRating(rating);
+                    rate.setEnabled(false);
+
+                    int hr = document.getLong("Cook Time HR").intValue();
+                    int min = document.getLong("Cook Time Min").intValue();
+                    int sec = document.getLong("Cook Time Sec").intValue();
+
+                    int milliseconds = (hr * 3600000) + (min * 60000) + (sec * 1000);
+                    int second = milliseconds/1000;
+                    int minute = second/60;
+                    second = second%60;
+                    timer.setText(String.format("%02d", minute)
+                            + ":" + String.format("%02d", second));
+
+                    start.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            new CountDownTimer(milliseconds, 1000){
+                                public void onTick(long millisUntilFinished){
+                                    int seconds = (int)(millisUntilFinished/1000);
+                                    int minutes = seconds/60;
+                                    seconds = seconds % 60;
+                                    timer.setText(String.format("%02d", minutes)
+                                            + ":" + String.format("%02d", seconds));
+                                }
+                                public  void onFinish(){
+                                    timer.setText("FINISH!!");
+                                }
+                            }.start();
+                        }
+                    });
                 }
             }
         });

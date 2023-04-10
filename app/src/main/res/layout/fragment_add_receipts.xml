@@ -11,6 +11,65 @@
         android:padding="40dp"
         tools:context=".AddReceiptsFragment">
 
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="33dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="228dp"
+            android:layout_marginTop="248dp"
+            android:fontFamily="@font/tinos"
+            android:text="Sec"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider12" />
+
+        <EditText
+            android:id="@+id/cookTimeInputSec"
+            android:layout_width="78dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="404dp"
+            android:ems="10"
+            android:hint="Seconds"
+            android:inputType="number|time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle2" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="33dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="252dp"
+            android:fontFamily="@font/tinos"
+            android:text="HR"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider12" />
+
+        <EditText
+            android:id="@+id/cookTimeInputMin"
+            android:layout_width="78dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="404dp"
+            android:ems="10"
+            android:hint="Minutes"
+            android:inputType="number|time"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle2" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="33dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="115dp"
+            android:layout_marginTop="247dp"
+            android:fontFamily="@font/tinos"
+            android:text="Min"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider12" />
+
         <ImageButton
             android:id="@+id/removeInstructionButton"
             android:layout_width="33dp"
@@ -116,14 +175,14 @@
             app:layout_constraintTop_toBottomOf="@+id/Title" />
 
         <EditText
-            android:id="@+id/cookTimeInput"
-            android:layout_width="306dp"
-            android:layout_height="55dp"
+            android:id="@+id/cookTimeInputHR"
+            android:layout_width="78dp"
+            android:layout_height="43dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="400dp"
             android:ems="10"
-            android:hint="Cooking Time"
-            android:inputType="time"
+            android:hint="Hour"
+            android:inputType="number|time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addIngeridentsTitle2" />
 
@@ -393,8 +452,8 @@
             android:id="@+id/fruitCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="136dp"
             android:text="Fruit"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider13" />
@@ -403,8 +462,8 @@
             android:id="@+id/vegetablesCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="16dp"
             android:text="Vegetables"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gainCheckBox" />
@@ -413,8 +472,8 @@
             android:id="@+id/gainCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
             android:text="Grain"
             app:layout_constraintStart_toEndOf="@+id/fruitCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -423,8 +482,8 @@
             android:id="@+id/dairyCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="136dp"
             android:text="Dairy"
             app:layout_constraintStart_toEndOf="@+id/gainCheckBox"
             app:layout_constraintTop_toBottomOf="@+id/divider13" />

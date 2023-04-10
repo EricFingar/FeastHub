@@ -12,21 +12,87 @@
         tools:context=".recipeDetailsFragment">
 
         <TextView
-            android:id="@+id/ingedientsList"
-            android:layout_width="411dp"
-            android:layout_height="178dp"
-            android:text="@string/recipe_name"
+            android:id="@+id/recipeName6"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="588dp"
+            android:fontFamily="@font/tinos"
+            android:text="Cook Timer"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.432"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider8" />
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+        <TextView
+            android:id="@+id/recipeName5"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="488dp"
+            android:fontFamily="@font/tinos"
+            android:text="Rating"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.783"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+        <ListView
+            android:id="@+id/InstructionListTemp"
+            android:layout_width="328dp"
+            android:layout_height="141dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeName4" />
+
+        <TextView
+            android:id="@+id/recipeName4"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="304dp"
+            android:fontFamily="@font/tinos"
+            android:text="Cooking Instructions"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+        <TextView
+            android:id="@+id/recipeName3"
+            android:layout_width="337dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="124dp"
+            android:fontFamily="@font/tinos"
+            android:text="Ingredients"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="414dp"
             android:layout_height="295dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toTopOf="@+id/recipeName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <View
@@ -40,11 +106,11 @@
 
         <TextView
             android:id="@+id/recipeDescription"
-            android:layout_width="411dp"
-            android:layout_height="178dp"
+            android:layout_width="326dp"
+            android:layout_height="75dp"
             android:layout_marginTop="48dp"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
@@ -98,6 +164,111 @@
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_cancel_24" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="277dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/baseline_edit_24" />
+
+        <ListView
+            android:id="@+id/IngridentsListTemp"
+            android:layout_width="325dp"
+            android:layout_height="136dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeName3" />
+
+        <View
+            android:id="@+id/divider14"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IngridentsListTemp" />
+
+        <View
+            android:id="@+id/divider16"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InstructionListTemp" />
+
+        <RatingBar
+            android:id="@+id/ratingRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="48dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeName5" />
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="241dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="37dp"
+            android:fontFamily="@font/tinos"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recipeName6" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:text="Start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/black"
+            android:text="Stop"
+            app:layout_constraintEnd_toStartOf="@+id/restartButton"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+        <Button
+            android:id="@+id/restartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/black"
+            android:text="Restart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
