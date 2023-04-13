@@ -267,7 +267,7 @@ public class editRecipeFragment extends Fragment {
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new HomeFragment());
+                fr.replace(R.id.frame_layout, new MyRecipesFragment());
                 fr.commit();
             }
         });
