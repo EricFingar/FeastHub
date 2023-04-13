@@ -117,12 +117,43 @@ public class AddReceiptsFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String descText = descriptInput.getText().toString();
-                int CookTimeHrText = Integer.parseInt(hr.getText().toString());
-                int CookTimeMinText = Integer.parseInt(min.getText().toString());
-                int CookTimeSecText = Integer.parseInt(sec.getText().toString());
+                String descText;
+                if (descriptInput.getText().toString().matches("")){
+                    descText = "[Blank]";
+                }
+                else{
+                    descText = descriptInput.getText().toString();
+                }
+
+                int CookTimeHrText;
+                if (hr.getText().toString().matches("")){
+                    CookTimeHrText = 0;
+                }
+                else{
+                    CookTimeHrText = Integer.parseInt(hr.getText().toString());
+                }
+                int CookTimeMinText;
+                if (min.getText().toString().matches("")){
+                    CookTimeMinText = 0;
+                }
+                else{
+                    CookTimeMinText = Integer.parseInt(min.getText().toString());
+                }
+                int CookTimeSecText;
+                if (sec.getText().toString().matches("")){
+                    CookTimeSecText = 0;
+                }
+                else{
+                    CookTimeSecText = Integer.parseInt(sec.getText().toString());
+                }
                 Float rateScore = ratingBar.getRating();
-                String recipeTitle = title.getText().toString();
+                String recipeTitle;
+                if(title.getText().toString().matches("")){
+                   recipeTitle = "[Blank]";
+                }
+                else{
+                    recipeTitle = title.getText().toString();
+                }
 
 
 

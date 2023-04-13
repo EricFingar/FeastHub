@@ -6,10 +6,32 @@
     android:layout_height="match_parent" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="40dp"
         tools:context=".recipeDetailsFragment">
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/baseline_edit_24" />
+
+        <Button
+            android:id="@+id/pauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="216dp"
+            android:text="Pause"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer" />
 
         <TextView
             android:id="@+id/recipeName6"
@@ -23,7 +45,6 @@
             android:textSize="35dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.432"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
@@ -138,9 +159,9 @@
             android:layout_height="43dp"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/tinos"
-            android:textColor="@color/black"
             android:text="TextView"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="35dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,21 +185,6 @@
             app:layout_constraintBottom_toTopOf="@+id/imageView3"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_cancel_24" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="277dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="2dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/back"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/baseline_edit_24" />
 
         <ListView
             android:id="@+id/IngridentsListTemp"
@@ -213,7 +219,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:layout_marginEnd="48dp"
-
+            android:stepSize="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipeName5" />
@@ -225,11 +231,11 @@
             android:layout_marginStart="60dp"
             android:layout_marginEnd="37dp"
             android:fontFamily="@font/tinos"
-            android:textColor="@color/black"
+            android:text="TextView"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="35dp"
             android:textStyle="bold"
-            android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recipeName6" />
@@ -240,8 +246,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="5dp"
-            android:textColor="@color/black"
             android:text="Start"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timer" />
 
@@ -249,26 +255,43 @@
             android:id="@+id/stopButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="248dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/black"
             android:text="Stop"
-            app:layout_constraintEnd_toStartOf="@+id/restartButton"
-            app:layout_constraintHorizontal_bias="1.0"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timer" />
 
         <Button
-            android:id="@+id/restartButton"
+            android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="76dp"
+            android:text="Reset"
             android:textColor="@color/black"
-            android:text="Restart"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timer" />
+
+        <ImageButton
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="119dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_delete_forever_24" />
+
+        <View
+            android:id="@+id/divider17"
+            android:layout_width="409dp"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingRecipe" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
