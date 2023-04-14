@@ -22,24 +22,6 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new LoginFragment());
 
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch(item.getItemId()){
-                case R.id.home:
-                    replaceFragment(new HomeFragment());
-                    break;
-                case R.id.addReceipts:
-                    replaceFragment(new AddReceiptsFragment());
-                    break;
-                case R.id.pantry:
-                    replaceFragment(new PantryFragment());
-                    break;
-                case R.id.account:
-                    replaceFragment(new AccountFragment());
-                    break;
-            }
-
-            return true;
-        });
     }
 
     private void replaceFragment(Fragment fragment){
