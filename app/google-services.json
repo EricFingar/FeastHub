@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "510689013039",
+    "project_id": "feasthubfirestore",
+    "storage_bucket": "feasthubfirestore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510689013039:android:d27600ae60f0b2510f05da",
+        "android_client_info": {
+          "package_name": "com.example.feasthub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510689013039-8kiq4inot39bnhna2iqenfpq9o5l99mf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU8pSY8quS50qG-HD6rwhdlE34mdkitGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510689013039-8kiq4inot39bnhna2iqenfpq9o5l99mf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

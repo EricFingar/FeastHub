@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">FeastHub</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="search_recipes">Search Recipes</string>
+    <string name="home">Home</string>
+    <string name="add_recipes">Add Recipe</string>
+    <string name="account">Account</string>
+    <string name="recent">Recent</string>
+    <string name="time_of_day_receipt">Time of Day Recipes</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="snacks">Snacks</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="breakfast_recipes">Breakfast Recipes</string>
+    <string name="lunch_recipes">Lunch Recipes</string>
+    <string name="dinner_recipes">Dinner Recipes</string>
+    <string name="snacks_recipes">Snacks Recipes</string>
+    <string name="recent_recipes">Recent Recipes</string>
+    <string name="time_of_day_recipes">Time Of Day Recipes</string>
+    <string name="add_image_of_the_recipe">Add Image Of The Recipe</string>
+    <string name="add_recipe">Add Recipe</string>
+    <string name="my_recipes">My Recipes</string>
+    <string name="settings">Settings</string>
+    <string name="units">Units</string>
+    <string name="recipes">My Recipes</string>
+    <string name="pantry">Pantry</string>
+    <string name="ingredients"></string>
+    <string name="recipe_name" />
+
+</resources>

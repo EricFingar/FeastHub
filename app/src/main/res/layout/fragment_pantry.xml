@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PantryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/grainList"
+            android:layout_width="172dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="236dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fruitRecipes" />
+
+        <ListView
+            android:id="@+id/proteinList"
+            android:layout_width="172dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="236dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fruitRecipes" />
+
+        <ListView
+            android:id="@+id/dairyList"
+            android:layout_width="172dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginTop="448dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fruitRecipes" />
+
+        <ListView
+            android:id="@+id/vegetablesList"
+            android:layout_width="172dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="4dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fruitRecipes" />
+
+        <TextView
+            android:id="@+id/fruitRecipes4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="352dp"
+            android:fontFamily="@font/tinos"
+            android:text="Protein Recipes"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fruitRecipes2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="223dp"
+            android:layout_marginTop="116dp"
+            android:fontFamily="@font/tinos"
+            android:text="Vegetables Recipes"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/tinos"
+            android:text="@string/pantry"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fruitRecipes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="116dp"
+            android:fontFamily="@font/tinos"
+            android:text="Fruit Recipes"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fruitRecipes3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="352dp"
+            android:fontFamily="@font/tinos"
+            android:text="Grains Recipes"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fruitRecipes5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="564dp"
+            android:fontFamily="@font/tinos"
+            android:text="Dairy Recipes"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ListView
+            android:id="@+id/fruitList"
+            android:layout_width="172dp"
+            android:layout_height="137dp"
+            android:layout_marginStart="16dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fruitRecipes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
