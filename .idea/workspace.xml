@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Added Login">
+    <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Most of the front end pages">
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.unitTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/FeastHub.app.unitTest.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/editRecipeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/editRecipeFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +53,7 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2MIPP4Q3CSAqCzFK0ZhiosddLJy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,8 +65,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/blade/AndroidStudioProjects/CS350-Feast-Hub/app/src/main/res/drawable&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/blade/AndroidStudioProjects/CS350-Feast-Hub/app/src/main/res/drawable&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/scaaj/AndroidStudioProjects/FeastHub/app/src/main/java&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -79,14 +76,8 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.feasthub" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\blade\AndroidStudioProjects\CS350-Feast-Hub\app\src\main\res\drawable" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\scaaj\AndroidStudioProjects\FeastHub2\app\src\main\res\drawable" />
-    </key>
-    <key name="android.template.-1842158669">
-      <recent name="com.example.feasthub" />
     </key>
   </component>
   <component name="RunManager">
@@ -193,14 +184,7 @@
       <option name="project" value="LOCAL" />
       <updated>1679344507579</updated>
     </task>
-    <task id="LOCAL-00006" summary="Added Login">
-      <created>1681429906457</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1681429906457</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,7 +200,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Most of the front end pages" />
-    <MESSAGE value="Added Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Most of the front end pages" />
   </component>
 </project>
