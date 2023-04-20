@@ -7,12 +7,28 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\scaaj\.android\avd\Pixel_6_Pro_API_33.avd" />
+            <value value="C:\Users\scaaj\.android\avd\Pixel_6_API_33.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     <timeTargetWasSelectedWithDropDown value="2023-04-19T00:11:52.964450600Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2023-03-08T17:45:57.183622Z" />
+>>>>>>> parent of 60fcaac (Got all the timer button to work and updates the recipe properly now.)
+=======
+    <timeTargetWasSelectedWithDropDown value="2023-03-08T17:45:57.183622Z" />
+>>>>>>> parent of 60fcaac (Got all the timer button to work and updates the recipe properly now.)
+=======
+    <timeTargetWasSelectedWithDropDown value="2023-03-08T17:45:57.183622Z" />
+>>>>>>> parent of 60fcaac (Got all the timer button to work and updates the recipe properly now.)
+=======
+    <timeTargetWasSelectedWithDropDown value="2023-03-08T17:45:57.183622Z" />
+>>>>>>> parent of 60fcaac (Got all the timer button to work and updates the recipe properly now.)
     <targetsSelectedWithDialog>
       <Target>
         <type value="QUICK_BOOT_TARGET" />
