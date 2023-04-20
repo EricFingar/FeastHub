@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class recipeDetailsFragment extends Fragment {
@@ -40,12 +42,13 @@ public class recipeDetailsFragment extends Fragment {
 
     private CountDownTimer mCountDownTimer;
     private int milliseconds;
-    private int seconds;
-    private int hours;
+    private int sec;
+    private int hr;
+    private int min;
 
-    private int tempMint;
+    private long millisecondsLeft;
 
-    private int minutes;
+    private TextView timer;
 
 
     @Override
@@ -67,9 +70,9 @@ public class recipeDetailsFragment extends Fragment {
         RatingBar rate = (RatingBar) view.findViewById(R.id.ratingRecipe);
         Button start = (Button) view.findViewById(R.id.startButton);
         Button reset = (Button) view.findViewById(R.id.resetButton);
-        Button stop = (Button) view.findViewById(R.id.stopButton);
         Button pause = (Button) view.findViewById(R.id.pauseButton);
-        TextView timer = (TextView) view.findViewById(R.id.timer);
+        Button resume = (Button) view.findViewById(R.id.resumeButton);
+        timer = (TextView) view.findViewById(R.id.timer);
 
 
 
@@ -95,47 +98,43 @@ public class recipeDetailsFragment extends Fragment {
                     rate.setRating(rating);
                     rate.setEnabled(false);
 
-                    int hr = document.getLong("Cook Time HR").intValue();
-                    int min = document.getLong("Cook Time Min").intValue();
-                    int sec = document.getLong("Cook Time Sec").intValue();
+                    hr = document.getLong("Cook Time HR").intValue();
+                    min = document.getLong("Cook Time Min").intValue();
+                    sec = document.getLong("Cook Time Sec").intValue();
                     milliseconds = (hr * 3600000) + (min * 60000) + (sec * 1000);
-                    int second = (int) (milliseconds / 1000);
-                    int hour = second / (60 * 60);
-                    int tempMin = (second - (hour * 60 * 60));
-                    int minute = tempMin / 60;
-                    second = tempMin - (minute * 60);
 
-                    timer.setText(String.format("%02d", hours)
-                            + ":" + String.format("%02d", minute)
-                            + ":" + String.format("%02d", seconds));
+                    timer.setText(String.format("%02d", hr)
+                            + ":" + String.format("%02d", min)
+                            + ":" + String.format("%02d", sec));
+
                     start.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            new CountDownTimer(milliseconds, 1000) {
-                                @Override
-                                public void onTick(long millisUntilFinished) {
-                                    seconds = (int) (millisUntilFinished / 1000);
+                            startTimer(milliseconds);
+                        }
 
-                                    hours = seconds / (60 * 60);
-                                    tempMint = (seconds - (hours * 60 * 60));
-                                    minutes = tempMint / 60;
-                                    seconds = tempMint - (minutes * 60);
+                    });
 
-                                    timer.setText(String.format("%02d", hours)
-                                            + ":" + String.format("%02d", minutes)
-                                            + ":" + String.format("%02d", seconds));
-                                }
-
-                                @Override
-                                public void onFinish() {
-                                    timer.setText("Finished!");
-                                }
-                            }.start();
-
+                    pause.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            pauseTimer();
                         }
                     });
 
+                    resume.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            resumeTimer();
+                        }
+                    });
 
+                    reset.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            resetTimer();
+                        }
+                    });
                 }
             }
         });
@@ -171,6 +170,39 @@ public class recipeDetailsFragment extends Fragment {
         return view;
     }
 
+    private void startTimer(long time){
+        mCountDownTimer = new CountDownTimer(time, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                millisecondsLeft = millisUntilFinished;
+                NumberFormat f = new DecimalFormat("00");
+                long hour = (millisUntilFinished / 3600000) % 24;
+                long min = (millisUntilFinished / 60000) % 60;
+                long sec = (millisUntilFinished / 1000) % 60;
+                timer.setText(f.format(hour) + ":" + f.format(min) + ":" + f.format(sec));
+
+            }
+
+            @Override
+            public void onFinish() {
+                timer.setText("Finished!");
+            }
+        }.start();
+    }
+
+    private void pauseTimer(){
+        mCountDownTimer.cancel();
+    }
+
+    private void resumeTimer(){
+        startTimer(millisecondsLeft);
+    }
+
+    private void resetTimer(){
+        timer.setText(String.format("%02d", hr)
+                + ":" + String.format("%02d", min)
+                + ":" + String.format("%02d", sec));
+    }
     private void delete(){
         ImageButton delete_btn = (ImageButton) view.findViewById(R.id.delete_btn);
         delete_btn.setOnClickListener(new View.OnClickListener() {
@@ -429,5 +461,4 @@ public class recipeDetailsFragment extends Fragment {
     }
 
 }
-
 
