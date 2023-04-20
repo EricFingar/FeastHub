@@ -149,7 +149,7 @@ public class AddReceiptsFragment extends Fragment {
                 Float rateScore = ratingBar.getRating();
                 String recipeTitle;
                 if(title.getText().toString().matches("")){
-                   recipeTitle = "[Blank]";
+                    recipeTitle = "[Blank]";
                 }
                 else{
                     recipeTitle = title.getText().toString();

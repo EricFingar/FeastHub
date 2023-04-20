@@ -75,7 +75,7 @@ public class LoginFragment extends Fragment {
 
     private void HomeActivity() {
         getActivity().finish();
-        Intent intent=new Intent(getActivity().getApplicationContext(),HomeActivity.class);
-        startActivity(intent);
+        //Intent intent=new Intent(getActivity().getApplicationContext(),HomeActivity.class);
+        //startActivity(intent);
     }
 }
