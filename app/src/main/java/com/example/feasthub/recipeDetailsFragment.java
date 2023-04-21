@@ -88,7 +88,7 @@ public class recipeDetailsFragment extends Fragment {
                     ArrayAdapter<String> arrayIngredients = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, ingredients);
                     Ingredientslist.setAdapter(arrayIngredients);
 
-                    instructions = (List<String>) document.get("Ingredients");
+                    instructions = (List<String>) document.get("Cooking Instructions");
 
                     ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, instructions);
                     Instructionlist.setAdapter(arrayInstructions);

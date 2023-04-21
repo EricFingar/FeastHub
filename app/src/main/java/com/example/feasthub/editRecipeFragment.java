@@ -123,7 +123,7 @@ public class editRecipeFragment extends Fragment {
                     ingredients.setAdapter(arrayIngredients);
 
 
-                    instructions = (List<String>) document.get("Ingredients");
+                    instructions = (List<String>) document.get("Cooking Instructions");
 
                     ArrayAdapter<String> arrayInstructions = new ArrayAdapter<>(view.getContext(), android.R.layout.simple_list_item_1, instructions);
                     instructionsList.setAdapter(arrayInstructions);
@@ -267,7 +267,7 @@ public class editRecipeFragment extends Fragment {
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new MyRecipesFragment());
+                fr.replace(R.id.frame_layout, recipe);
                 fr.commit();
             }
         });
