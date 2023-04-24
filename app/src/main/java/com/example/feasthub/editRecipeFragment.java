@@ -43,6 +43,8 @@ public class editRecipeFragment extends Fragment {
     private String collectionName;
     private String isMyRecipe;
     private String isTODRecipe;
+
+    private String isFavorite;
     private List<String> ing = new ArrayList<>();
     private List<String> instructions = new ArrayList<>();
 
@@ -77,7 +79,6 @@ public class editRecipeFragment extends Fragment {
         recipeName = key[0];
         isMyRecipe = key[2];
         isTODRecipe = key[3];
-
         recipeNameOld = recipeName;
 
 
@@ -263,7 +264,7 @@ public class editRecipeFragment extends Fragment {
                 //Still need to get it work, just have it set to home right now.
                 Bundle args = new Bundle();
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
-                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe};
+                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe, isFavorite};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();

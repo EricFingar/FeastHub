@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecentFragment">
+    tools:context=".FavoriteFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/recentTitle"
+            android:id="@+id/favoritesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/tinos"
-            android:text="@string/recent_recipes"
+            android:text="Favorite Recipes"
             android:textColor="@color/black"
             android:textSize="35sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -24,7 +24,7 @@
             app:layout_constraintVertical_bias="0.005" />
 
         <ImageButton
-            android:id="@+id/recentBackButton"
+            android:id="@+id/favoriteBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -32,35 +32,22 @@
             android:minHeight="48dp"
             android:background="@color/white"
             android:src="@drawable/baseline_arrow_back_24"
-            app:layout_constraintEnd_toStartOf="@+id/recentTitle"
+            app:layout_constraintEnd_toStartOf="@+id/favoritesTitle"
             app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TableLayout
+        <GridView
+            android:id="@+id/favoriteRecipeGrid"
             android:layout_width="409dp"
             android:layout_height="677dp"
+            android:numColumns="2"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbars="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentTitle">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
+            app:layout_constraintTop_toBottomOf="@+id/favoritesTitle"></GridView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

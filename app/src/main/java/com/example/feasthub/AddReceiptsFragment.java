@@ -170,6 +170,8 @@ public class AddReceiptsFragment extends Fragment {
                 user.put("Cook Time Min", CookTimeMinText);
                 user.put("Cook Time Sec", CookTimeSecText);
                 user.put("Rating",rateScore);
+                user.put("Favorite", false);
+
 
                 if (fruit.isChecked()){
                     db.collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {

@@ -13,12 +13,16 @@
 
 
         <GridView
-            android:layout_width="346dp"
-            android:layout_height="175dp"
-            android:layout_marginStart="20dp"
+            android:id="@+id/MostUsedRecipeGD"
+            android:layout_width="367dp"
+            android:layout_height="173dp"
             android:layout_marginTop="9dp"
+            android:numColumns="110"
+            android:rowCount="1"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbars="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/favoritesTitle" />
 
         <EditText
             android:id="@+id/searchbr"
@@ -42,13 +46,13 @@
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/recentTitle"
+            android:id="@+id/favoritesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="115dp"
             android:fontFamily="@font/tinos"
-            android:text="@string/recent"
+            android:text="Favorites"
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +69,7 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recentTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/favoritesTitle" />
 
         <ImageButton
             android:id="@+id/breakfast_botton"

@@ -65,7 +65,7 @@ public class PantryFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {ids.get(i).toString(), "Fruits", "False","False"};
+                String[] array = {ids.get(i).toString(), "Fruits", "False","False", "False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -101,7 +101,7 @@ public class PantryFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {ids.get(i).toString(), "Grains", "False","False"};
+                String[] array = {ids.get(i).toString(), "Grains", "False","False", "False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -137,7 +137,7 @@ public class PantryFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {ids.get(i).toString(), "Vegetables", "False","False"};
+                String[] array = {ids.get(i).toString(), "Vegetables", "False","False", "False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -173,7 +173,7 @@ public class PantryFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {ids.get(i).toString(), "Protein", "False","False"};
+                String[] array = {ids.get(i).toString(), "Protein", "False","False", "False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -210,7 +210,7 @@ public class PantryFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {ids.get(i).toString(), "Dairy", "False","False"};
+                String[] array = {ids.get(i).toString(), "Dairy", "False","False", "False"};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 

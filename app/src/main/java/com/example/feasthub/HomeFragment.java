@@ -3,7 +3,6 @@ package com.example.feasthub;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -11,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
-import android.widget.ListView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +21,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
     private View view;
@@ -42,9 +38,9 @@ public class HomeFragment extends Fragment {
         lunchButton();
         dinnerButton();
         snacksButton();
-        recentButton();
+        favoriteRecipeButton();
         timeOfDayButton();
-
+        getFavoriteRecipe();
         return view;
 
 
@@ -98,13 +94,13 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void recentButton(){
+    private void favoriteRecipeButton(){
         ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.recent_more_botton);
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new RecentFragment());
+                fr.replace(R.id.frame_layout, new FavoriteFragment());
                 fr.commit();
             }
         });
@@ -120,6 +116,43 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    private void getFavoriteRecipe() {
+        GridView recipeCards = (GridView) view.findViewById(R.id.MostUsedRecipeGD);
+        ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
+
+        db.collection("Favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                //List<String> ids = new ArrayList<>();
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        String id = document.getId();
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                    }
+                }
+                recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
+                recipeCards.setAdapter(adapter);
+            }
+        });
+
+        recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {
+
+                recipeDetailsFragment recipe = new recipeDetailsFragment();
+                Bundle args = new Bundle();
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(),"Favorites", "False", "False", "True"};
+                args.putStringArray("RecipeName", array);
+                recipe.setArguments(args);
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, recipe);
+                fr.commit();
+            }
+        });
+    }
+
 
     private void getTODRecipeCard() {
 
@@ -150,7 +183,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -182,7 +215,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -213,7 +246,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -245,7 +278,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -277,7 +310,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -308,7 +341,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -340,7 +373,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
