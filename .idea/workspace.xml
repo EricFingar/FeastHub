@@ -10,20 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15ccf61b-6622-4926-85c9-97e61af208c6" name="Changes" comment="Updates everything once a recipe is updated in the menu">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_favorite_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_favorite_border_24.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AddReceiptsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AddReceiptsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AccountFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/AccountFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/FavoriteFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/FavoriteFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/PantryFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/RecentFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/FavoriteFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/editRecipeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/editRecipeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/recipeDetailsFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/LoginFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/LoginFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/SearchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/feasthub/SearchFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_recipes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_my_recipes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_favorite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_recipedetail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_time_of_day.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_time_of_day.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/login_screen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/login_screen.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

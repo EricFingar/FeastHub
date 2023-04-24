@@ -6,13 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,6 +39,7 @@ public class AccountFragment extends Fragment {
         myRecipesButton();
         editAccountButton();
         getMyRecipeCard();
+        search();
         return view;
     }
 
@@ -62,6 +66,31 @@ public class AccountFragment extends Fragment {
             }
         });
     }
+
+    private void search(){
+        EditText searchInput = (EditText) view.findViewById(R.id.searchbr);
+
+        searchInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if((keyEvent != null && (keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER))){
+                    String searchItem = searchInput.getText().toString();
+                    SearchFragment recipe = new SearchFragment();
+                    Bundle args = new Bundle();
+                    String[] array = {searchItem};
+                    args.putStringArray("RecipeName", array);
+                    recipe.setArguments(args);
+
+                    FragmentTransaction fr = getFragmentManager().beginTransaction();
+                    fr.replace(R.id.frame_layout, recipe);
+                    fr.commit();
+                }
+                return false;
+            }
+        });
+
+    }
+
     private void getMyRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.accountMyRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();

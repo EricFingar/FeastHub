@@ -38,7 +38,7 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void backButton(){
-        ImageButton back_btn = (ImageButton) view.findViewById(R.id.favoriteBackButton);
+        ImageButton back_btn = (ImageButton) view.findViewById(R.id.searchBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,7 +50,7 @@ public class FavoriteFragment extends Fragment {
     }
 
     private void getFavoriteRecipeCard(){
-        GridView recipeCards = (GridView) view.findViewById(R.id.favoriteRecipeGrid);
+        GridView recipeCards = (GridView) view.findViewById(R.id.searchRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
 
         db.collection("Favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

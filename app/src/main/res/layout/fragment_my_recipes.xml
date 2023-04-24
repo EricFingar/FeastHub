@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/favoritesTitle"
+            android:id="@+id/SearchTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/tinos"
@@ -32,7 +32,7 @@
             android:minHeight="48dp"
             android:background="@color/white"
             android:src="@drawable/baseline_arrow_back_24"
-            app:layout_constraintEnd_toStartOf="@+id/favoritesTitle"
+            app:layout_constraintEnd_toStartOf="@+id/SearchTitle"
             app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
