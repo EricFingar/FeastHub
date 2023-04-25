@@ -61,7 +61,7 @@ public class LoginFragment extends Fragment {
                     if(doucment.exists()){
                         if( email.equals(doucment.getString("email"))){
                             if(password.equals(doucment.getString("password"))){
-
+                                Intent intent = new Intent();
                             }
                             else{
                                 Snackbar uploadedMSG = Snackbar.make(view, "Email or Password is incorrect", 500);
