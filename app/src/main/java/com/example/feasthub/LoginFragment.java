@@ -2,6 +2,7 @@ package com.example.feasthub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,57 +30,62 @@ public class LoginFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.login_screen, container, false);
-        SignIn();
 
-        Button login = (Button) view.findViewById(R.id.loginInButton);
-
-        login.setOnClickListener(new View.OnClickListener() {
+        Button loginButton = view.findViewById(R.id.loginInButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SignIn();
+                handleLogin();
             }
         });
+
         return view;
     }
 
-    private void SignIn() {
-        EditText emailEntered = (EditText) view.findViewById(R.id.emailInput);
-        EditText passwordEntered = (EditText) view.findViewById(R.id.passwordInput);
+    private void handleLogin() {
+        EditText emailEditText = view.findViewById(R.id.emailInput);
+        EditText passwordEditText = view.findViewById(R.id.passwordInput);
 
-        String email = emailEntered.getText().toString();
-        String password = passwordEntered.getText().toString();
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            emailEditText.setError("Please enter an email address");
+            emailEditText.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            passwordEditText.setError("Please enter a password");
+            passwordEditText.requestFocus();
+            return;
+        }
 
         db.collection("Login").document("User").collection(email).document("userInfo").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot doucment = task.getResult();
-                    if(doucment.exists()){
-                        if( email.equals(doucment.getString("email"))){
-                            if(password.equals(doucment.getString("password"))){
-                                Intent intent = new Intent();
-                            }
-                            else{
-                                Snackbar uploadedMSG = Snackbar.make(view, "Email or Password is incorrect", 500);
-                                uploadedMSG.show();
-                            }
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String storedPassword = document.getString("password");
+                        if (password.equals(storedPassword)) {
+                            // Start the HomeFragment upon successful login
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+                        } else {
+                            Snackbar.make(view, "Incorrect email or password", Snackbar.LENGTH_LONG).show();
                         }
-                        else{
-                            Snackbar uploadedMSG = Snackbar.make(view, "Email or Password is incorrect", 500);
-                            uploadedMSG.show();
-                        }
+                    } else {
+                        Snackbar.make(view, "There is no user with that email", Snackbar.LENGTH_LONG).show();
                     }
-                }
-                else{
-                    Snackbar uploadedMSG = Snackbar.make(view, "There is no user under that email", 500);
-                    uploadedMSG.show();
+                } else {
+                    Snackbar.make(view, "An error occurred. Please try again later.", Snackbar.LENGTH_LONG).show();
                 }
             }
         });
     }
-
 }
