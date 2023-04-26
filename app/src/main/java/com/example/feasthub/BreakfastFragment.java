@@ -32,12 +32,15 @@ public class BreakfastFragment extends Fragment {
 
     private View view;
     private String name;
+    private String username;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_breakfast, container, false);
+        String[] key = getArguments().getStringArray("Key");
+        username = key[0];
         backButton();
         getBreakfastRecipeCard();
         return view;
@@ -48,8 +51,13 @@ public class BreakfastFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                HomeFragment home = new HomeFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                home.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new HomeFragment());
+                fr.replace(R.id.frame_layout, home);
                 fr.commit();
             }
         });
@@ -59,7 +67,7 @@ public class BreakfastFragment extends Fragment {
     private void getBreakfastRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.breakfastGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
-        db.collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -81,7 +89,7 @@ public class BreakfastFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False",  "False"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False",  "False", "False", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 

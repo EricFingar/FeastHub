@@ -32,6 +32,8 @@ public class SearchFragment extends Fragment {
 
     private String searchWord;
 
+    private String username;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +43,7 @@ public class SearchFragment extends Fragment {
 
         String[] key = getArguments().getStringArray("RecipeName");
         searchWord = key[0];
+        username = key[1];
 
         backButton();
         //search();
@@ -69,8 +72,13 @@ public class SearchFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                HomeFragment home = new HomeFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                home.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new HomeFragment());
+                fr.replace(R.id.frame_layout, home);
                 fr.commit();
             }
         });
@@ -83,7 +91,7 @@ public class SearchFragment extends Fragment {
         recipeModelArrayList.clear();
 
 
-        db.collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -102,7 +110,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        db.collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -121,7 +129,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        db.collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -140,7 +148,7 @@ public class SearchFragment extends Fragment {
             }
         });
 
-        db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -165,7 +173,7 @@ public class SearchFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(),"Breakfast", "False", "False", "True"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(),"Breakfast", "False", "False", "True", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 

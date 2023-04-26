@@ -1,11 +1,13 @@
 package com.example.feasthub;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +27,12 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class HomeFragment extends Fragment {
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String username;
+    private String loginSuccess;
     Calendar cal = Calendar.getInstance();
 
 
@@ -36,6 +41,10 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_home, container, false);
+        String[] key = getArguments().getStringArray("Key");
+        username = key[0];
+        ((MainActivity)getActivity()).setUsername(username);
+
         getTODRecipeCard();
         breakfastButton();
         lunchButton();
@@ -60,7 +69,7 @@ public class HomeFragment extends Fragment {
                     String searchItem = searchInput.getText().toString();
                     SearchFragment recipe = new SearchFragment();
                     Bundle args = new Bundle();
-                    String[] array = {searchItem};
+                    String[] array = {searchItem, username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -79,8 +88,13 @@ public class HomeFragment extends Fragment {
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                BreakfastFragment breakfast = new BreakfastFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                breakfast.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new BreakfastFragment());
+                fr.replace(R.id.frame_layout, breakfast);
                 fr.commit();
             }
         });
@@ -91,8 +105,13 @@ public class HomeFragment extends Fragment {
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                LunchFragment lunch = new LunchFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                lunch.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new LunchFragment());
+                fr.replace(R.id.frame_layout, lunch);
                 fr.commit();
             }
         });
@@ -103,8 +122,13 @@ public class HomeFragment extends Fragment {
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                DinnerFragment dinner = new DinnerFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                dinner.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new DinnerFragment());
+                fr.replace(R.id.frame_layout, dinner);
                 fr.commit();
             }
         });
@@ -115,8 +139,13 @@ public class HomeFragment extends Fragment {
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                SnacksFragment snack = new SnacksFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                snack.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new SnacksFragment());
+                fr.replace(R.id.frame_layout, snack);
                 fr.commit();
             }
         });
@@ -127,8 +156,13 @@ public class HomeFragment extends Fragment {
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                FavoriteFragment favorite = new FavoriteFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                favorite.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new FavoriteFragment());
+                fr.replace(R.id.frame_layout, favorite);
                 fr.commit();
             }
         });
@@ -138,8 +172,13 @@ public class HomeFragment extends Fragment {
         TOD_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                TimeOfDayFragment TOD = new TimeOfDayFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                TOD.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new TimeOfDayFragment());
+                fr.replace(R.id.frame_layout, TOD);
                 fr.commit();
             }
         });
@@ -149,7 +188,7 @@ public class HomeFragment extends Fragment {
         GridView recipeCards = (GridView) view.findViewById(R.id.MostUsedRecipeGD);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
 
-        db.collection("Favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -190,7 +229,7 @@ public class HomeFragment extends Fragment {
         int currentHour = cal.get(Calendar.HOUR_OF_DAY);
 
         if (7 <= currentHour && currentHour < 11) {
-            db.collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -211,7 +250,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Breakfast", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -222,7 +261,7 @@ public class HomeFragment extends Fragment {
             });
         }
         if (11 <= currentHour && currentHour < 13) {
-            db.collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -243,7 +282,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -253,7 +292,7 @@ public class HomeFragment extends Fragment {
                 }
             });
 
-            db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -274,7 +313,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False",username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -285,7 +324,7 @@ public class HomeFragment extends Fragment {
             });
         }
         if (13 <= currentHour && currentHour < 17) {
-            db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -306,7 +345,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -317,7 +356,7 @@ public class HomeFragment extends Fragment {
             });
         }
         if (17 <= currentHour && currentHour < 19) {
-            db.collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -338,7 +377,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -348,7 +387,7 @@ public class HomeFragment extends Fragment {
                 }
             });
 
-            db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -369,7 +408,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -380,7 +419,7 @@ public class HomeFragment extends Fragment {
             });
         }
         if (19 <= currentHour && currentHour > 0) {
-            db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     //List<String> ids = new ArrayList<>();
@@ -401,7 +440,7 @@ public class HomeFragment extends Fragment {
 
                     recipeDetailsFragment recipe = new recipeDetailsFragment();
                     Bundle args = new Bundle();
-                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False"};
+                    String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks", "False", "True", "False", username};
                     args.putStringArray("RecipeName", array);
                     recipe.setArguments(args);
 
@@ -412,4 +451,5 @@ public class HomeFragment extends Fragment {
             });
         }
     }
+
 }

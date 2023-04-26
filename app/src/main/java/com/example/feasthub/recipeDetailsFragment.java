@@ -55,6 +55,8 @@ public class recipeDetailsFragment extends Fragment {
     private String isFavorite;
     private TextView timer;
 
+    private String username;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -67,6 +69,7 @@ public class recipeDetailsFragment extends Fragment {
         isMyRecipe = key[2];
         isTODRecipe = key[3];
         isFavorite = key[4];
+        username = key[5];
 
 
 
@@ -106,7 +109,7 @@ public class recipeDetailsFragment extends Fragment {
             favorite.setImageResource(R.drawable.baseline_favorite_border_24);
         }
 
-        db.collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
@@ -172,101 +175,101 @@ public class recipeDetailsFragment extends Fragment {
                             if(!favoriteRecipe){
                                 favorite.setImageResource(R.drawable.baseline_favorite_24);
                                 favoriteRecipe = true;
-                                db.collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Dairy").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
@@ -283,113 +286,113 @@ public class recipeDetailsFragment extends Fragment {
                                 user.put("Rating",rating);
                                 user.put("Favorite", true);
 
-                                db.collection("Favorites").document(recipeName).set(user);
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Favorites").document(recipeName).set(user);
                             }
                             else{
                                 favorite.setImageResource(R.drawable.baseline_favorite_border_24);
                                 favoriteRecipe = false;
 
-                                db.collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
-                                db.collection("Dairy").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if(task.isSuccessful()){
                                             DocumentSnapshot document = task.getResult();
                                             if(document.exists()){
-                                                db.collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
+                                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).update("Favorite",favoriteRecipe);
                                             }
                                         }
                                     }
                                 });
 
-                                db.collection("Favorites").document(recipeName).delete();
+                                db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Favorites").document(recipeName).delete();
                             }
 
                         }
@@ -471,127 +474,127 @@ public class recipeDetailsFragment extends Fragment {
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setCancelable(true);
                 builder.setMessage("Are you sure you want to delete " + recipeName + " recipe");
-                builder.setPositiveButton("Comfirm", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(collectionName != "Fruits") {
-                            db.collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Fruits").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Grains") {
-                            db.collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Grains").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Protein") {
-                            db.collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Protein").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Vegetables") {
-                            db.collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Vegetables").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Dairy") {
-                            db.collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Fruits").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Breakfast") {
-                            db.collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Breakfast").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Lunch") {
-                            db.collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Lunch").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Dinner") {
-                            db.collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Dinner").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
                         if(collectionName != "Snacks") {
-                            db.collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()) {
-                                            db.collection("Snacks").document(recipeName).delete();
+                                            db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeName).delete();
                                         }
                                     }
                                 }
                             });
                         }
-                        db.collection(collectionName).document(recipeName).delete();
+                        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).delete();
                         FragmentTransaction fr = getFragmentManager().beginTransaction();
                         fr.replace(R.id.frame_layout, new HomeFragment());
                         fr.commit();
@@ -619,7 +622,7 @@ public class recipeDetailsFragment extends Fragment {
             public void onClick(View view) {
                 Bundle args = new Bundle();
                 editRecipeFragment editRecipe = new editRecipeFragment();
-                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe};
+                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe, username};
                 args.putStringArray("RecipeName", array);
                 editRecipe.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
@@ -635,8 +638,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                FavoriteFragment favorite = new FavoriteFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                favorite.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new FavoriteFragment());
+                fr.replace(R.id.frame_layout, favorite);
                 fr.commit();
             }
         });
@@ -648,8 +656,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                BreakfastFragment breakfast = new BreakfastFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                breakfast.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new BreakfastFragment());
+                fr.replace(R.id.frame_layout, breakfast);
                 fr.commit();
             }
         });
@@ -661,8 +674,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                LunchFragment lunch = new LunchFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                lunch.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new LunchFragment());
+                fr.replace(R.id.frame_layout, lunch);
                 fr.commit();
             }
         });
@@ -674,8 +692,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                DinnerFragment dinner = new DinnerFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                dinner.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new DinnerFragment());
+                fr.replace(R.id.frame_layout,dinner);
                 fr.commit();
             }
         });
@@ -687,8 +710,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                SnacksFragment snack = new SnacksFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                snack.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new SnacksFragment());
+                fr.replace(R.id.frame_layout, snack);
                 fr.commit();
             }
         });
@@ -700,8 +728,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                PantryFragment pantry = new PantryFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                pantry.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new PantryFragment());
+                fr.replace(R.id.frame_layout, pantry);
                 fr.commit();
             }
         });
@@ -713,8 +746,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                MyRecipesFragment myRecipes = new MyRecipesFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                myRecipes.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new MyRecipesFragment());
+                fr.replace(R.id.frame_layout, myRecipes);
                 fr.commit();
             }
         });
@@ -726,8 +764,13 @@ public class recipeDetailsFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                TimeOfDayFragment TOD = new TimeOfDayFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                TOD.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new TimeOfDayFragment());
+                fr.replace(R.id.frame_layout, TOD);
                 fr.commit();
             }
         });

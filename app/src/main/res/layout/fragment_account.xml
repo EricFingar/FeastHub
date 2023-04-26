@@ -116,14 +116,14 @@
             app:layout_constraintTop_toTopOf="@+id/textView4" />
 
         <Button
-            android:id="@+id/editAccount"
+            android:id="@+id/accountButton"
             android:layout_width="201dp"
             android:layout_height="38dp"
             android:layout_marginStart="104dp"
             android:layout_marginBottom="64dp"
             android:fontFamily="@font/tinos"
+            android:text="Account"
             android:textColor="@color/black"
-            android:text="Edit Account"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

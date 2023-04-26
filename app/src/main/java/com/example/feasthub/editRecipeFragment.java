@@ -68,6 +68,8 @@ public class editRecipeFragment extends Fragment {
 
     private boolean snacksFlag = false;
 
+    private String username;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -79,6 +81,7 @@ public class editRecipeFragment extends Fragment {
         recipeName = key[0];
         isMyRecipe = key[2];
         isTODRecipe = key[3];
+        username = key[4];
         recipeNameOld = recipeName;
 
 
@@ -109,7 +112,7 @@ public class editRecipeFragment extends Fragment {
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
 
-        db.collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -146,7 +149,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -159,7 +162,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -172,7 +175,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -185,7 +188,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -198,7 +201,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -211,7 +214,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -224,7 +227,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -237,7 +240,7 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
-        db.collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
@@ -264,7 +267,7 @@ public class editRecipeFragment extends Fragment {
                 //Still need to get it work, just have it set to home right now.
                 Bundle args = new Bundle();
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
-                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe, isFavorite};
+                String[] array = {recipeName,collectionName,isMyRecipe, isTODRecipe, isFavorite, username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
@@ -404,13 +407,13 @@ public class editRecipeFragment extends Fragment {
 
 
                 if (fruit.isChecked()){
-                    db.collection("Fruits").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if(task.isSuccessful()){
                                 DocumentSnapshot document = task.getResult();
                                 if(document.exists()){
-                                    db.collection("Fruits").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -426,8 +429,8 @@ public class editRecipeFragment extends Fragment {
                                     });
                                 }
                                 else{
-                                    db.collection("Fruits").document(recipeNameOld).delete();
-                                    db.collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Fruits", 500);
@@ -448,13 +451,13 @@ public class editRecipeFragment extends Fragment {
 
                 }
                 if (grain.isChecked()) {
-                    db.collection("Grains").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Grains").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -469,8 +472,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Grains").document(recipeNameOld).delete();
-                                    db.collection("Grains").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Grains", 500);
@@ -491,13 +494,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (vegetables.isChecked()) {
-                    db.collection("Vegetables").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Vegetables").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -512,8 +515,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Vegetables").document(recipeNameOld).delete();
-                                    db.collection("Vegetables").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Vegetables", 500);
@@ -534,13 +537,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (protein.isChecked()) {
-                    db.collection("Protein").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Protein").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -555,8 +558,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Protein").document(recipeNameOld).delete();
-                                    db.collection("Protein").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Protein", 500);
@@ -577,13 +580,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (dairy.isChecked()) {
-                    db.collection("Dairy").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Dairy").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -598,8 +601,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Dairy").document(recipeNameOld).delete();
-                                    db.collection("Dairy").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Dairy", 500);
@@ -620,13 +623,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (breakfast.isChecked()) {
-                    db.collection("Breakfast").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Breakfast").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -641,8 +644,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Breakfast").document(recipeNameOld).delete();
-                                    db.collection("Breakfast").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Breakfast", 500);
@@ -663,13 +666,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (lunch.isChecked()) {
-                    db.collection("Lunch").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Lunch").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -684,8 +687,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Lunch").document(recipeNameOld).delete();
-                                    db.collection("Lunch").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Lunch", 500);
@@ -706,13 +709,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (dinner.isChecked()) {
-                    db.collection("Dinner").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Dinner").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -727,8 +730,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Dinner").document(recipeNameOld).delete();
-                                    db.collection("Dinner").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Dinner", 500);
@@ -749,13 +752,13 @@ public class editRecipeFragment extends Fragment {
                 }
 
                 if (snacks.isChecked()) {
-                    db.collection("Snacks").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                             if (task.isSuccessful()) {
                                 DocumentSnapshot document = task.getResult();
                                 if (document.exists()) {
-                                    db.collection("Snacks").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeTitle).update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been updated in the database", 500);
@@ -770,8 +773,8 @@ public class editRecipeFragment extends Fragment {
                                         }
                                     });
                                 } else {
-                                    db.collection("Snacks").document(recipeNameOld).delete();
-                                    db.collection("Snacks").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeNameOld).delete();
+                                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             Snackbar uploadedMSG = Snackbar.make(view, "Recipe has been added to Snacks", 500);

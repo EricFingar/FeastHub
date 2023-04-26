@@ -12,7 +12,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,6 +32,7 @@ public class LoginFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private View view;
+    private String email;
 
     @Nullable
     @Override
@@ -37,6 +40,17 @@ public class LoginFragment extends Fragment {
         view = inflater.inflate(R.layout.login_screen, container, false);
 
         Button loginButton = view.findViewById(R.id.loginInButton);
+        Button registerButton = view.findViewById(R.id.registerButton);
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, new registerUser());
+                fr.commit();
+            }
+        });
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +65,7 @@ public class LoginFragment extends Fragment {
         EditText emailEditText = view.findViewById(R.id.emailInput);
         EditText passwordEditText = view.findViewById(R.id.passwordInput);
 
-        String email = emailEditText.getText().toString().trim();
+        email = emailEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
@@ -75,7 +89,12 @@ public class LoginFragment extends Fragment {
                         String storedPassword = document.getString("password");
                         if (password.equals(storedPassword)) {
                             // Start the HomeFragment upon successful login
-                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, new HomeFragment()).commit();
+                            Bundle args = new Bundle();
+                            HomeFragment loginSuccess = new HomeFragment();
+                            String[] array = {email,"True"};
+                            args.putStringArray("Key", array);
+                            loginSuccess.setArguments(args);
+                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, loginSuccess).commit();
                         } else {
                             Snackbar.make(view, "Incorrect email or password", Snackbar.LENGTH_LONG).show();
                         }

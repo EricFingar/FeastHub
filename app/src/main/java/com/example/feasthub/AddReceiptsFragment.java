@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +29,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AddReceiptsFragment extends Fragment {
+public class AddReceiptsFragment extends Fragment{
     private View view;
     private ImageView image;
+
     private ListView ingList;
     private List<String> list;
     private ArrayAdapter<String> arrayAdapter;
+    private String username;
+
 
 
     @Nullable
@@ -41,6 +45,8 @@ public class AddReceiptsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_receipts, container, false);
+        String[] key = getArguments().getStringArray("Key");
+        username = key[0];
 
         submitButton();
         return view;
@@ -173,8 +179,11 @@ public class AddReceiptsFragment extends Fragment {
                 user.put("Favorite", false);
 
 
+
+
+
                 if (fruit.isChecked()){
-                    db.collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -219,7 +228,7 @@ public class AddReceiptsFragment extends Fragment {
 
                 }
                 if (grain.isChecked()){
-                    db.collection("Grains").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Grains").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -264,7 +273,7 @@ public class AddReceiptsFragment extends Fragment {
 
                 }
                 if (dairy.isChecked()){
-                    db.collection("Dairy").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dairy").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -309,7 +318,7 @@ public class AddReceiptsFragment extends Fragment {
 
                 }
                 if (vegetables.isChecked()){
-                    db.collection("Vegetables").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Vegetables").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -354,7 +363,7 @@ public class AddReceiptsFragment extends Fragment {
 
                 }
                 if (protein.isChecked()){
-                    db.collection("Protein").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Protein").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -400,7 +409,7 @@ public class AddReceiptsFragment extends Fragment {
                 }
 
                 if (breakfast.isChecked()){
-                    db.collection("Breakfast").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -446,7 +455,7 @@ public class AddReceiptsFragment extends Fragment {
                 }
 
                 if (lunch.isChecked()){
-                    db.collection("Lunch").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -492,7 +501,7 @@ public class AddReceiptsFragment extends Fragment {
                 }
 
                 if (dinner.isChecked()){
-                    db.collection("Dinner").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");
@@ -536,8 +545,7 @@ public class AddReceiptsFragment extends Fragment {
                 }
 
                 if (snacks.isChecked()){
-                    db.collection("Snacks" +
-                            "").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             title.setText("");

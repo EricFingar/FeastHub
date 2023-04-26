@@ -13,33 +13,64 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
 
+    private String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        replaceFragment(new LoginFragment());
+        bottom_navBar();
 
+    }
+
+
+    private void bottom_navBar(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new LoginFragment());
 
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             switch(item.getItemId()){
                 case R.id.home:
-                    replaceFragment(new HomeFragment());
+                    Bundle args = new Bundle();
+                    HomeFragment loginSuccess = new HomeFragment();
+                    String[] array = {username};
+                    args.putStringArray("Key", array);
+                    loginSuccess.setArguments(args);
+                    replaceFragment(loginSuccess);
                     break;
                 case R.id.addReceipts:
-                    replaceFragment(new AddReceiptsFragment());
+                    Bundle args1 = new Bundle();
+                    AddReceiptsFragment add = new AddReceiptsFragment();
+                    String[] array1 = {username};
+                    args1.putStringArray("Key", array1);
+                    add.setArguments(args1);
+                    replaceFragment(add);
                     break;
                 case R.id.pantry:
-                    replaceFragment(new PantryFragment());
+                    Bundle args2 = new Bundle();
+                    PantryFragment pantry = new PantryFragment();
+                    String[] array2 = {username};
+                    args2.putStringArray("Key", array2);
+                    pantry.setArguments(args2);
+                    replaceFragment(pantry);
                     break;
                 case R.id.account:
-                    replaceFragment(new AccountFragment());
+                    Bundle args3 = new Bundle();
+                    AccountFragment account = new AccountFragment();
+                    String[] array3 = {username};
+                    args3.putStringArray("Key", array3);
+                    account.setArguments(args3);
+                    replaceFragment(account);
                     break;
             }
 
             return true;
         });
+    }
+
+    public void setUsername(String username){
+        this.username = username;
     }
 
     private void replaceFragment(Fragment fragment){

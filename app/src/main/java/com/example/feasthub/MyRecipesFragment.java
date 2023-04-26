@@ -26,11 +26,15 @@ public class MyRecipesFragment extends Fragment {
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private String username;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_my_recipes, container, false);
+        String[] key = getArguments().getStringArray("Key");
+
+        username = key[0];
         backButton();
         getMyRecipeCard();
         return view;
@@ -41,8 +45,13 @@ public class MyRecipesFragment extends Fragment {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle args = new Bundle();
+                AccountFragment account = new AccountFragment();
+                String[] array = {username};
+                args.putStringArray("Key", array);
+                account.setArguments(args);
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame_layout, new AccountFragment());
+                fr.replace(R.id.frame_layout, account);
                 fr.commit();
             }
         });
@@ -51,7 +60,7 @@ public class MyRecipesFragment extends Fragment {
     private void getMyRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.myRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
-        db.collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Breakfast").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -82,7 +91,7 @@ public class MyRecipesFragment extends Fragment {
             }
         });
 
-        db.collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Lunch").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -103,7 +112,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch","True","False"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Lunch","True","False", "False", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -113,7 +122,7 @@ public class MyRecipesFragment extends Fragment {
             }
         });
 
-        db.collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Dinner").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -134,7 +143,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner","True","False"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Dinner","True","False", "False", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -144,7 +153,7 @@ public class MyRecipesFragment extends Fragment {
             }
         });
 
-        db.collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Snacks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 //List<String> ids = new ArrayList<>();
@@ -164,7 +173,7 @@ public class MyRecipesFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","True","False"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(), "Snacks","True","False", "False", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
