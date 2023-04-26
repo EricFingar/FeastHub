@@ -92,6 +92,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/settingTitle" />
 
+        <Button
+            android:id="@+id/logOutButton"
+            android:layout_width="201dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="104dp"
+            android:layout_marginBottom="52dp"
+            android:fontFamily="@font/tinos"
+            android:text="Logout"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:id="@+id/unitsTitle"
             android:layout_width="wrap_content"
@@ -120,7 +132,7 @@
             android:layout_width="201dp"
             android:layout_height="38dp"
             android:layout_marginStart="104dp"
-            android:layout_marginBottom="64dp"
+            android:layout_marginBottom="100dp"
             android:fontFamily="@font/tinos"
             android:text="Account"
             android:textColor="@color/black"

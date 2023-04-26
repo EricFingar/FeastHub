@@ -44,8 +44,22 @@ public class AccountFragment extends Fragment {
         myRecipesButton();
         editAccountButton();
         getMyRecipeCard();
+        logout();
         search();
         return view;
+    }
+
+    private void logout(){
+        Button logout = (Button) view.findViewById(R.id.logOutButton);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, new LoginFragment());
+                fr.commit();
+            }
+        });
     }
 
     private void myRecipesButton(){
