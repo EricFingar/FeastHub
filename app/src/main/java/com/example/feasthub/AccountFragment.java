@@ -130,7 +130,7 @@ public class AccountFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -161,7 +161,7 @@ public class AccountFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -192,7 +192,7 @@ public class AccountFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.dinner));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -223,7 +223,7 @@ public class AccountFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);

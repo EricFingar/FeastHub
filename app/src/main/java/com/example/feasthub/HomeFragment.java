@@ -44,7 +44,6 @@ public class HomeFragment extends Fragment {
         String[] key = getArguments().getStringArray("Key");
         username = key[0];
         ((MainActivity)getActivity()).setUsername(username);
-
         getTODRecipeCard();
         breakfastButton();
         lunchButton();
@@ -152,8 +151,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void favoriteRecipeButton(){
-        ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.recent_more_botton);
-        breakfast_btn.setOnClickListener(new View.OnClickListener() {
+        ImageButton favorite_btn = (ImageButton) view.findViewById(R.id.recent_more_botton);
+        favorite_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle args = new Bundle();
@@ -195,7 +194,7 @@ public class HomeFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -209,7 +208,7 @@ public class HomeFragment extends Fragment {
 
                 recipeDetailsFragment recipe = new recipeDetailsFragment();
                 Bundle args = new Bundle();
-                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(),"Favorites", "False", "False", "True"};
+                String[] array = {recipeModelArrayList.get(i).getRecipe_name().toString(),"Favorites", "False", "False", "True", username};
                 args.putStringArray("RecipeName", array);
                 recipe.setArguments(args);
 
@@ -236,7 +235,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -268,7 +267,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -331,7 +330,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -363,7 +362,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.dinner));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -394,7 +393,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);
@@ -426,7 +425,7 @@ public class HomeFragment extends Fragment {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String id = document.getId();
-                            recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                            recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                         }
                     }
                     recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);

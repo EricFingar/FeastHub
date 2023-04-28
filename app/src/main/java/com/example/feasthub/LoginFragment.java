@@ -38,7 +38,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.login_screen, container, false);
-
+        ((MainActivity)getActivity()).setBottomNavigationVisibility(View.GONE);
         Button loginButton = view.findViewById(R.id.loginInButton);
         Button registerButton = view.findViewById(R.id.registerButton);
 
@@ -94,6 +94,7 @@ public class LoginFragment extends Fragment {
                             String[] array = {email,"True"};
                             args.putStringArray("Key", array);
                             loginSuccess.setArguments(args);
+                            ((MainActivity)getActivity()).setBottomNavigationVisibility(View.VISIBLE);
                             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout, loginSuccess).commit();
                         } else {
                             Snackbar.make(view, "Incorrect email or password", Snackbar.LENGTH_LONG).show();

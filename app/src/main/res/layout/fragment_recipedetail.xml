@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="300dp"
             android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/recipeImage"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_edit_24" />
 
@@ -105,7 +105,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/recipeImage"
             android:layout_width="414dp"
             android:layout_height="295dp"
             android:layout_marginTop="30dp"
@@ -123,7 +123,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/recipeImage" />
 
         <TextView
             android:id="@+id/recipeDescription"
@@ -182,7 +182,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/recipeImage"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/baseline_cancel_24" />
 

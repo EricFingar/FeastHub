@@ -1,12 +1,17 @@
 package com.example.feasthub;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.provider.Settings;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +34,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AddReceiptsFragment extends Fragment{
+public class AddRecipesFragment extends Fragment{
     private View view;
     private ImageView image;
 
@@ -38,20 +43,21 @@ public class AddReceiptsFragment extends Fragment{
     private ArrayAdapter<String> arrayAdapter;
     private String username;
 
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_add_receipts, container, false);
+        view = inflater.inflate(R.layout.fragment_add_recipes, container, false);
         String[] key = getArguments().getStringArray("Key");
         username = key[0];
 
         submitButton();
         return view;
     }
-
+    
 
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.addRecipeSubmitButton);
@@ -80,6 +86,11 @@ public class AddReceiptsFragment extends Fragment{
         EditText hr = (EditText) view.findViewById(R.id.cookTimeInputHR);
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
+        ImageButton addImage = (ImageButton) view.findViewById(R.id.addImageButton);
+
+
+
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +174,7 @@ public class AddReceiptsFragment extends Fragment{
 
 
 
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
 
 
@@ -177,6 +188,7 @@ public class AddReceiptsFragment extends Fragment{
                 user.put("Cook Time Sec", CookTimeSecText);
                 user.put("Rating",rateScore);
                 user.put("Favorite", false);
+                user.put("Image", R.drawable.defaultfood);
 
 
 
@@ -594,6 +606,7 @@ public class AddReceiptsFragment extends Fragment{
 
 
     }
+
 
 
 

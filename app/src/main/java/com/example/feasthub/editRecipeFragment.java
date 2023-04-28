@@ -119,6 +119,7 @@ public class editRecipeFragment extends Fragment {
                     DocumentSnapshot document = task.getResult();
 
                     title.setText(recipeName);
+
                     String descrip = document.getString("Description");
                     descriptInput.setText(descrip);
 
@@ -403,6 +404,7 @@ public class editRecipeFragment extends Fragment {
                 user.put("Cook Time Min", CookTimeMinText);
                 user.put("Cook Time Sec", CookTimeSecText);
                 user.put("Rating",rateScore);
+                user.put("Image", R.drawable.defaultfood);
 
 
 

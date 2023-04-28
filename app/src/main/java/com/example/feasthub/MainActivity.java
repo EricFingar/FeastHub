@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
     private String username;
+    private String login = "False";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case R.id.addReceipts:
                     Bundle args1 = new Bundle();
-                    AddReceiptsFragment add = new AddReceiptsFragment();
+                    AddRecipesFragment add = new AddRecipesFragment();
                     String[] array1 = {username};
                     args1.putStringArray("Key", array1);
                     add.setArguments(args1);
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+    }
+
+    public void setBottomNavigationVisibility(int visibility) {
+        binding.bottomNavigationView.setVisibility(visibility);
     }
 
     public void setUsername(String username){

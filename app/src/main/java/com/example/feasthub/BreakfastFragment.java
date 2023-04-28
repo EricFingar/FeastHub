@@ -74,7 +74,7 @@ public class BreakfastFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
 

@@ -68,7 +68,7 @@ public class SnacksFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String id = document.getId();
-                        recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                        recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                     }
                 }
                 recipeGVAdapter adapter = new recipeGVAdapter(view.getContext(), recipeModelArrayList);

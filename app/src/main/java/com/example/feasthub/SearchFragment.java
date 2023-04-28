@@ -100,7 +100,7 @@ public class SearchFragment extends Fragment {
                         if(document.exists()) {
                             if(document.getId().contains(searchWord)) {
                                 String id = document.getId();
-                                recipeModelArrayList.add(new recipeModel(id, R.drawable.breakfest));
+                                recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                             }
                         }
                     }

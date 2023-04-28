@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -95,6 +96,7 @@ public class recipeDetailsFragment extends Fragment {
         Button pause = (Button) view.findViewById(R.id.pauseButton);
         Button resume = (Button) view.findViewById(R.id.resumeButton);
         ImageButton favorite = (ImageButton) view.findViewById(R.id.favoriteButton);
+        ImageView recipeImage = (ImageView) view.findViewById(R.id.recipeImage);
         timer = (TextView) view.findViewById(R.id.timer);
 
         if(isFavorite == "True"){
@@ -114,6 +116,9 @@ public class recipeDetailsFragment extends Fragment {
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
+
+                    recipeImage.setImageResource(R.drawable.defaultfood);
+
                     String descrip = document.getString("Description");
                     description.setText(descrip);
 
@@ -285,6 +290,7 @@ public class recipeDetailsFragment extends Fragment {
                                 user.put("Cook Time Sec", sec);
                                 user.put("Rating",rating);
                                 user.put("Favorite", true);
+                                user.put("Image", R.drawable.defaultfood);
 
                                 db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Favorites").document(recipeName).set(user);
                             }
