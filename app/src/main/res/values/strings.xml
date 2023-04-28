@@ -28,5 +28,6 @@
     <string name="pantry">Pantry</string>
     <string name="ingredients"></string>
     <string name="recipe_name" />
+    <string name="imageSaved">Image has been saved</string>
 
 </resources>

@@ -10,23 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/oldPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:fontFamily="@font/tinos"
-            android:hint="Old Password"
-            android:inputType="textPassword"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileBio" />
-
         <TextView
             android:id="@+id/editprofileTItle"
             android:layout_width="wrap_content"
@@ -58,7 +41,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/oldPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/oldPasswordEdit" />
 
         <EditText
             android:id="@+id/comfirmNewPassword"
@@ -76,61 +59,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newPasswordInput" />
 
-        <EditText
-            android:id="@+id/profilePhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="104dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="97dp"
-            android:ems="10"
-            android:inputType="phone"
-            android:fontFamily="@font/tinos"
-            android:textColorHint="@color/black"
-            android:hint="Phone Number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/comfirmNewPassword" />
-
-        <EditText
-            android:id="@+id/profileName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="152dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:fontFamily="@font/tinos"
-            android:textColorHint="@color/black"
-            android:text="Name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editprofileTItle" />
-
-        <EditText
-            android:id="@+id/profileBio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:fontFamily="@font/tinos"
-            android:textColorHint="@color/black"
-            android:text="Bio"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileName" />
-
         <Button
             android:id="@+id/editProfileButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="160dp"
             android:fontFamily="@font/tinos"
             android:text="Submit"
@@ -138,7 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profilePhoneNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/comfirmNewPassword" />
 
         <ImageButton
             android:id="@+id/profileBackButton"
@@ -160,10 +94,65 @@
             android:layout_marginStart="83dp"
             android:layout_marginEnd="83dp"
             android:src="@drawable/baseline_account_circle_24"
-            app:layout_constraintBottom_toTopOf="@+id/profileName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editprofileTItle" />
+
+        <EditText
+            android:id="@+id/oldPasswordEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:fontFamily="@font/tinos"
+            android:hint="Old Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilePhoneNumberEdit" />
+
+        <EditText
+            android:id="@+id/profilePhoneNumberEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:fontFamily="@font/tinos"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileBioEdit" />
+
+        <EditText
+            android:id="@+id/profileBioEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:fontFamily="@font/tinos"
+            android:hint="Bio"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileNameEdit" />
+
+        <EditText
+            android:id="@+id/profileNameEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:fontFamily="@font/tinos"
+            android:hint="Name"
+            android:inputType="text"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

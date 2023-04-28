@@ -33,14 +33,15 @@ public class ProfileEditFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view =  inflater.inflate(R.layout.fragment_profile, container, false);
+        view =  inflater.inflate(R.layout.fragment_profile_edit, container, false);
         String[] key = getArguments().getStringArray("Key");
         username = key[0];
 
-        EditText name = (EditText) view.findViewById(R.id.profileName);
-        EditText bio = (EditText) view.findViewById(R.id.profileBio);
-        EditText email = (EditText) view.findViewById(R.id.email);
-        EditText phone = (EditText) view.findViewById(R.id.profilePhoneNumber);
+        EditText name = (EditText) view.findViewById(R.id.profileNameEdit);
+        EditText bio = (EditText) view.findViewById(R.id.profileBioEdit);
+        EditText phone = (EditText) view.findViewById(R.id.profilePhoneNumberEdit);
+
+
 
         db.collection("Login").document("User").collection(username).document("userInfo").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -52,8 +53,7 @@ public class ProfileEditFragment extends Fragment {
                         name.setText(nameDB);
                         String bioDB = document.getString("bio");
                         bio.setText(bioDB);
-                        String emailDB = username;
-                        email.setText(emailDB);
+
                         String phoneDB = document.getString("phone number");
                         phone.setText(phoneDB);
                         dbPassword = document.getString("password");
@@ -87,15 +87,16 @@ public class ProfileEditFragment extends Fragment {
 
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.editProfileButton);
+        EditText name = (EditText) view.findViewById(R.id.profileNameEdit);
+        EditText bio = (EditText) view.findViewById(R.id.profileBioEdit);
+        EditText phone = (EditText) view.findViewById(R.id.profilePhoneNumberEdit);
+        EditText passwordUpdate = (EditText) view.findViewById(R.id.newPasswordInput);
+        EditText passwordComfirmed = (EditText) view.findViewById(R.id.comfirmNewPassword);
+        EditText oldPassowrd = (EditText) view.findViewById(R.id.oldPasswordEdit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText name = (EditText) view.findViewById(R.id.profileName);
-                EditText bio = (EditText) view.findViewById(R.id.profileBio);
-                EditText phone = (EditText) view.findViewById(R.id.profilePhoneNumber);
-                EditText passwordUpdate = (EditText) view.findViewById(R.id.newPasswordInput);
-                EditText passwordComfirmed = (EditText) view.findViewById(R.id.comfirmNewPassword);
-                EditText oldPassowrd = (EditText) view.findViewById(R.id.oldPassword);
+
 
 
                 String nameDB = name.getText().toString();
@@ -104,7 +105,17 @@ public class ProfileEditFragment extends Fragment {
                 String newPassword = passwordUpdate.getText().toString();
                 String comfirmedPassword = passwordComfirmed.getText().toString();
                 String oldpassword = oldPassowrd.getText().toString();
-
+                db.collection("Login").document("User").collection(username).document("userInfo").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if(task.isSuccessful()){
+                            DocumentSnapshot document = task.getResult();
+                            if(document.exists()){
+                                dbPassword = document.getString("password");
+                            }
+                        }
+                    }
+                });
 
                 if(!newPassword.equals("") && !comfirmedPassword.equals("")){
                     if(oldpassword.equals(dbPassword)) {
@@ -121,6 +132,9 @@ public class ProfileEditFragment extends Fragment {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Snackbar uploadedMSG = Snackbar.make(view, "Profile has been updated in the database", 500);
                                     uploadedMSG.show();
+                                    oldPassowrd.setText("");
+                                    passwordUpdate.setText("");
+                                    passwordComfirmed.setText("");
                                 }
                             });
 

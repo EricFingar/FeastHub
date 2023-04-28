@@ -10,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,10 +33,10 @@ public class ProfileFragment extends Fragment {
         String[] key = getArguments().getStringArray("Key");
         username = key[0];
 
-        EditText name = (EditText) view.findViewById(R.id.profileName);
-        EditText bio = (EditText) view.findViewById(R.id.profileBio);
-        EditText email = (EditText) view.findViewById(R.id.email);
-        EditText phone = (EditText) view.findViewById(R.id.profilePhoneNumber);
+        TextView name = (TextView) view.findViewById(R.id.profileName);
+        TextView bio = (TextView) view.findViewById(R.id.profileBio);
+        TextView email = (TextView) view.findViewById(R.id.emailDB);
+        TextView phone = (TextView) view.findViewById(R.id.profilePhoneNumber);
 
         db.collection("Login").document("User").collection(username).document("userInfo").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -49,7 +49,8 @@ public class ProfileFragment extends Fragment {
                         String bioDB = document.getString("bio");
                         bio.setText(bioDB);
                         String emailDB = document.getString(username);
-                        email.setText(emailDB);
+                        email.setText(username.toString());
+
                         String phoneDB = document.getString("phone number");
                         phone.setText(phoneDB);
                     }

@@ -2,8 +2,12 @@ package com.example.feasthub;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -23,6 +27,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,6 +50,8 @@ public class AddRecipesFragment extends Fragment{
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Uri mImageUri;
 
     @Nullable
     @Override
@@ -57,7 +64,7 @@ public class AddRecipesFragment extends Fragment{
         submitButton();
         return view;
     }
-    
+
 
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.addRecipeSubmitButton);
@@ -90,6 +97,16 @@ public class AddRecipesFragment extends Fragment{
 
 
 
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, PICK_IMAGE_REQUEST);
+
+
+            }
+        });
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -188,7 +205,7 @@ public class AddRecipesFragment extends Fragment{
                 user.put("Cook Time Sec", CookTimeSecText);
                 user.put("Rating",rateScore);
                 user.put("Favorite", false);
-                user.put("Image", R.drawable.defaultfood);
+                user.put("Image", mImageUri);
 
 
 
@@ -607,7 +624,17 @@ public class AddRecipesFragment extends Fragment{
 
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        TextView addImageText = (TextView) view.findViewById(R.id.addImageTitle);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            addImageText.setText(R.string.imageSaved);
 
+            // Do something with the selected image URI
+        }
+    }
 
 
 }

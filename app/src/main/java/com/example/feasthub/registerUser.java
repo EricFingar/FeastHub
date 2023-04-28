@@ -47,6 +47,7 @@ public class registerUser extends Fragment {
         view = inflater.inflate(R.layout.register_user, container, false);
 
         Button register = view.findViewById(R.id.registerButton);
+        Button back = view.findViewById(R.id.BackButton);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +55,14 @@ public class registerUser extends Fragment {
             }
         });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame_layout, new LoginFragment());
+                fr.commit();
+            }
+        });
         return view;
     }
 

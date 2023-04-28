@@ -26,68 +26,76 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="101dp"
-            android:ems="10"
-            android:fontFamily="@font/tinos"
-            android:textColorHint="@color/black"
-
-            android:hint="Email Address"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileBio" />
-
-        <EditText
-            android:id="@+id/profilePhoneNumber"
+        <TextView
+            android:id="@+id/emailDB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="104dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="97dp"
+            android:layout_marginEnd="101dp"
             android:ems="10"
+            android:textColor="@color/black"
+            android:fontFamily="@font/tinos"
+            android:hint="Email Address"
+            android:inputType="textEmailAddress"
+            android:gravity="center"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileBio" />
+
+        <TextView
+            android:id="@+id/profilePhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="101dp"
+            android:ems="10"
+            android:gravity="center"
             android:fontFamily="@font/tinos"
             android:hint="Phone Number"
-
             android:inputType="phone"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.478"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
+            app:layout_constraintTop_toBottomOf="@+id/emailDB" />
 
-        <EditText
+        <TextView
             android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="152dp"
             android:layout_marginEnd="101dp"
-
+            android:textSize="20sp"
             android:ems="10"
             android:inputType="textPersonName"
             android:fontFamily="@font/tinos"
             android:textColorHint="@color/black"
             android:text="Name"
+            android:textColor="@color/black"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editprofileTItle" />
 
-        <EditText
+        <TextView
             android:id="@+id/profileBio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginTop="32dp"
-
+            android:textSize="20sp"
+            android:gravity="center"
             android:layout_marginEnd="101dp"
             android:ems="10"
+            android:textColor="@color/black"
             android:inputType="textPersonName"
             android:fontFamily="@font/tinos"
             android:textColorHint="@color/black"
