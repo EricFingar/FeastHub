@@ -9,6 +9,11 @@ import android.os.Bundle;
 
 import com.example.feasthub.databinding.ActivityMainBinding;
 
+/**
+ * The MainActivity class is responsible for managing the main user interface of the application.
+ * It extends AppCompatActivity class and contains methods for creating the activity and managing
+ * the bottom navigation bar.
+ */
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -16,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
     private String username;
     private String login = "False";
 
+    /**
+     * Called when the activity is starting. Sets up the initial view of the activity and the
+     * bottom navigation bar.
+     * @param savedInstanceState a Bundle containing the activity's previously saved state, or null
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Sets up the bottom navigation bar and its items. Switches to the appropriate fragment when an
+     * item is selected.
+     */
     private void bottom_navBar(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -70,14 +83,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets the visibility of the bottom navigation bar.
+     * @param visibility an int indicating the visibility of the bottom navigation bar
+     */
     public void setBottomNavigationVisibility(int visibility) {
         binding.bottomNavigationView.setVisibility(visibility);
     }
 
+    /**
+     *Sets the username of the currently logged in user.
+     * @param username a String containing the username of the currently logged in user
+     */
     public void setUsername(String username){
         this.username = username;
     }
 
+    /**
+     * Replaces the current fragment with a new fragment.
+     * @param fragment the fragment to replace the current fragment with
+     */
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -30,6 +30,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A Fragment subclass that displays the details of a recipe.
+ */
 public class recipeDetailsFragment extends Fragment {
     private View view;
     private String recipeName;
@@ -59,6 +62,14 @@ public class recipeDetailsFragment extends Fragment {
     private String username;
 
 
+
+    /**
+     *Inflates the layout for this fragment and sets the views and listeners for different UI elements.
+     * @param inflater - the LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container - the parent view that the fragment's UI should be attached to
+     * @param savedInstanceState - saved data from a previous instance of the fragment
+     * @return - the inflated view of the fragment
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -111,6 +122,12 @@ public class recipeDetailsFragment extends Fragment {
             favorite.setImageResource(R.drawable.baseline_favorite_border_24);
         }
 
+        /**
+         * Retrieves information about a specific recipe from the Firestore database and displays it on the screen.
+         * @param username the username of the user that the recipe belongs to
+         * @param collectionName the name of the category that the recipe belongs to
+         * @param recipeName the name of the recipe being displayed
+         */
         db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -407,6 +424,15 @@ public class recipeDetailsFragment extends Fragment {
             }
         });
 
+        /**
+         * Determines which exit method to call based on the recipe's properties.
+         * If it is a time of day recipe, calls exitTOD().
+         * If it is a favorite recipe, calls exitFavorite().
+         * If it is not a favorite recipe and not the user's own recipe, calls the appropriate exit method for the collection it belongs to (exitBreakfast(), exitLunch(), exitDinner(), exitSnacks(), or exitPantry()).
+         * If it is the user's own recipe, calls exitMyRecipe().
+         * Calls the delete() and editRecipe() methods.
+         * @return the view for the recipe page
+         */
         if(isTODRecipe == "True"){
             exitTOD();
         } else if (isFavorite == "True") {
@@ -439,8 +465,16 @@ public class recipeDetailsFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Starts a CountDownTimer for the given time.
+     * @param time The duration of the timer in milliseconds.
+     */
     private void startTimer(long time){
         mCountDownTimer = new CountDownTimer(time, 1000) {
+            /**
+             * Invoked on each tick of the timer. Updates the timer display with the remaining time.
+             *  @param millisUntilFinished The amount of time remaining until the timer finishes.
+             */
             @Override
             public void onTick(long millisUntilFinished) {
                 millisecondsLeft = millisUntilFinished;
@@ -451,27 +485,40 @@ public class recipeDetailsFragment extends Fragment {
                 timer.setText(f.format(hour) + ":" + f.format(min) + ":" + f.format(sec));
 
             }
-
+            /**
+             * Invoked when the timer has finished. Sets the timer display to "Finished!".
+             */
             @Override
             public void onFinish() {
                 timer.setText("Finished!");
             }
         }.start();
     }
-
+    /**
+     * Cancels the currently running CountDownTimer.
+     */
     private void pauseTimer(){
         mCountDownTimer.cancel();
     }
-
+    /**
+     * Resumes the CountDownTimer with the remaining time.
+     */
     private void resumeTimer(){
         startTimer(millisecondsLeft);
     }
-
+    /**
+     * Resets the timer display to the initial time.
+     */
     private void resetTimer(){
         timer.setText(String.format("%02d", hr)
                 + ":" + String.format("%02d", min)
                 + ":" + String.format("%02d", sec));
     }
+
+    /**
+     * Deletes a recipe from the user's collection and from the database, and displays a confirmation dialog
+     * @throws NullPointerException if view, username, recipeName, or collectionName is null
+     */
     private void delete(){
         ImageButton delete_btn = (ImageButton) view.findViewById(R.id.delete_btn);
         delete_btn.setOnClickListener(new View.OnClickListener() {
@@ -620,7 +667,12 @@ public class recipeDetailsFragment extends Fragment {
             }
         });
     }
-
+    /**
+     * Sets up the functionality to edit the current recipe.
+     * Adds an OnClickListener to the edit button which, when clicked,
+     * creates a Bundle with the necessary data to edit the current recipe,
+     * initializes an instance of the editRecipeFragment class, sets the Bundle arguments,
+     */
     private void editRecipe(){
         ImageButton edit_btn = (ImageButton) view.findViewById(R.id.edit);
         edit_btn.setOnClickListener(new View.OnClickListener() {
@@ -638,6 +690,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the FavoriteFragment, which returns the user to the FavoriteFragment when clicked.
+     */
     private void exitFavorite(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -656,6 +711,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the BreakfastFragment, which returns the user to the BreakfastFragment when clicked.
+     */
     private void exitBreakfast(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -674,6 +732,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the LunchFragment, which returns the user to the LunchFragment when clicked.
+     */
     private void exitLunch(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -692,6 +753,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the DinnerFragment, which returns the user to the DinnerFragment when clicked.
+     */
     private void exitDinner(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -710,6 +774,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the SnacksFragment, which returns the user to the SnacksFragment when clicked.
+     */
     private void exitSnacks(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -728,6 +795,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the PantryFragment, which returns the user to the previous fragment when clicked.
+     */
     private void exitPantry(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -746,6 +816,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the MyRecipesFragment, which returns the user to the previous fragment when clicked.
+     */
     private void exitMyRecipe(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);
@@ -764,6 +837,9 @@ public class recipeDetailsFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets the OnClickListener for the back button in the TimeOfDayFragment, which returns the user to the previous fragment when clicked.
+     */
     private void exitTOD(){
 
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.back);

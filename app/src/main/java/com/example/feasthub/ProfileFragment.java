@@ -19,12 +19,23 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
+
+/**
+ * A fragment representing the user's profile, containing information such as their name, bio, email, and phone number.
+ */
 public class ProfileFragment extends Fragment {
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String username;
 
+    /**
+     *Creates the view for the ProfileFragment, inflating the fragment_profile.xml layout file and populating it with the user's information retrieved from the Firebase database.
+     * @param inflater the LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container the parent view that the fragment UI should be attached to
+     * @param savedInstanceState the saved instance state of the fragment
+     * @return the inflated view for this fragment
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,6 +75,9 @@ public class ProfileFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the functionality of the back button, which returns the user to the AccountFragment.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.profileBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +95,9 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    /**
+     * Sets up the functionality of the edit profile button, which launches the ProfileEditFragment to allow the user to edit their profile.
+     */
     private void editProfileButton(){
         Button editButton = (Button) view.findViewById(R.id.editProfileButton);
         editButton.setOnClickListener(new View.OnClickListener() {

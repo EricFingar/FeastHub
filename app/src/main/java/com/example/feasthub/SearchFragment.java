@@ -25,7 +25,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-
+/**
+ * A Fragment subclass for searching recipes by name.
+ */
 public class SearchFragment extends Fragment {
 
     private View view;
@@ -35,6 +37,14 @@ public class SearchFragment extends Fragment {
     private String username;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    /**
+     *Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +77,9 @@ public class SearchFragment extends Fragment {
 
     }*/
 
+    /**
+     * Sets a listener to handle clicks on the back button and to navigate to the HomeFragment.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.searchBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +97,9 @@ public class SearchFragment extends Fragment {
         });
     }
 
+    /**
+     * Queries Firestore database to get recipe names that contain the search keyword and display them in a GridView.
+     */
     private void getSearchRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.searchRecipeGrid);
         recipeCards.refreshDrawableState();

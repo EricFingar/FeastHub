@@ -27,7 +27,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
+/**
+ * A fragment that displays the home screen of the application.
+ */
 public class HomeFragment extends Fragment {
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -36,6 +38,12 @@ public class HomeFragment extends Fragment {
     Calendar cal = Calendar.getInstance();
 
 
+    /**
+     *Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     */
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +66,10 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+    /**
+     * Initializes the search functionality for the search bar.
+     */
     private void search(){
         EditText searchInput = (EditText) view.findViewById(R.id.searchbr);
 
@@ -82,6 +94,10 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+    /**
+     * Initializes the button for the BreakfastFragment.
+     */
     private void breakfastButton(){
         ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.breakfast_botton);
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +115,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Initializes the button for the LunchFragment.
+     */
     private void lunchButton(){
         ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.lunch_botton);
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +135,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Initializes the button for the DinnerFragment.
+     */
     private void dinnerButton(){
         ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.dinner_botton);
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +155,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Initializes the button for the SnacksFragment.
+     */
     private void snacksButton(){
         ImageButton breakfast_btn = (ImageButton) view.findViewById(R.id.snacks_button);
         breakfast_btn.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +175,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Initializes the button for the FavoriteFragment.
+     */
     private void favoriteRecipeButton(){
         ImageButton favorite_btn = (ImageButton) view.findViewById(R.id.recent_more_botton);
         favorite_btn.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +194,10 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+
+    /**
+     * Initializes the button for the TimeOfDayFragment.
+     */
     private void timeOfDayButton(){
         ImageButton TOD_btn = (ImageButton) view.findViewById(R.id.time_of_day_button);
         TOD_btn.setOnClickListener(new View.OnClickListener() {
@@ -183,6 +215,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Retrieves the favorite recipes of the user and displays them in a grid view.
+     */
     private void getFavoriteRecipe() {
         GridView recipeCards = (GridView) view.findViewById(R.id.MostUsedRecipeGD);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
@@ -219,7 +254,9 @@ public class HomeFragment extends Fragment {
         });
     }
 
-
+    /**
+     * This method displays the recipe cards based on the current hour of the day
+     */
     private void getTODRecipeCard() {
 
         GridView recipeCards = (GridView) view.findViewById(R.id.TODGrid);

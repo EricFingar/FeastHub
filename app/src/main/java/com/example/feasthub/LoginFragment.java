@@ -27,6 +27,9 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+/**
+ * A fragment that handles user login.
+ */
 public class LoginFragment extends Fragment {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -34,6 +37,14 @@ public class LoginFragment extends Fragment {
     private View view;
     private String email;
 
+    /**
+     *Initializes the fragment view and sets up login and registration buttons.
+     * @param inflater The LayoutInflater object that can be used to inflate views.
+     * @param container The ViewGroup object that contains the fragment.
+     * @param savedInstanceState The Bundle object containing the previously saved state of the fragment.
+     * @return the fragment view.
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,6 +72,9 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Handles the user login request by validating the user inputs and checking for valid login credentials.
+     */
     private void handleLogin() {
         EditText emailEditText = view.findViewById(R.id.emailInput);
         EditText passwordEditText = view.findViewById(R.id.passwordInput);

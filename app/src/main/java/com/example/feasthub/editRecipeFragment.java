@@ -37,6 +37,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class represents a fragment that allows the user to edit a recipe.
+ */
 public class editRecipeFragment extends Fragment {
     private View view;
     private ImageView image;
@@ -76,6 +79,14 @@ public class editRecipeFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri mImageUri;
 
+    /**
+     * Overrides the onCreateView method of Fragment class to inflate the layout of the fragment
+     * and initialize its view elements.
+     * @param inflater - The LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container - The parent view that the fragment's UI should be attached to
+     * @param savedInstanceState - This fragment is being re-constructed from a previous saved state as given here
+     * @return The View for the fragment's UI, or null.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -118,7 +129,25 @@ public class editRecipeFragment extends Fragment {
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
 
-
+    /**
+     * Retrieves recipe information from Firestore and populates the UI fields with the corresponding values
+     * @param username the username of the user whose recipe is being retrieved
+     * @param collectionName the name of the collection where the recipe is stored
+     * @param recipeName the name of the recipe being retrieved
+     * @param view the parent view that contains the UI fields to be populated
+     * @param title the EditText field for the recipe title
+     * @param descriptInput the EditText field for the recipe description
+     * @param ing the list of ingredients for the recipe
+     * @param arrayIngredients the ArrayAdapter for the list of ingredients
+     * @param ingredients the ListView for the list of ingredients
+     * @param instructions the list of cooking instructions for the recipe
+     * @param arrayInstructions the ArrayAdapter for the list of cooking instructions
+     * @param instructionsList the ListView for the list of cooking instructions
+     * @param hr the EditText field for the number of hours needed to cook the recipe
+     * @param min the EditText field for the number of minutes needed to cook the recipe
+     * @param sec the EditText field for the number of seconds needed to cook the recipe
+     * @param ratingBar the RatingBar for the recipe rating
+     */
         db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -157,6 +186,10 @@ public class editRecipeFragment extends Fragment {
             }
         });
 
+        /**
+         * Retrieves the fruit category from the Firestore
+         * All other categories follow
+         */
         db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -266,6 +299,9 @@ public class editRecipeFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the behavior for the exit button that returns the user to the previous screen.
+     */
     private void exitButton(){
         ImageButton exit = (ImageButton) view.findViewById(R.id.exit);
 
@@ -284,6 +320,15 @@ public class editRecipeFragment extends Fragment {
             }
         });
     }
+
+
+    /**
+     * This method sets up the submit button functionality on the add recipe page.
+     * It retrieves all of the user input from the various EditText and CheckBox fields,
+     * and stores them in an array to be passed to the recipe details fragment. It also
+     * sets up listeners for the add and subtract ingredient and instruction buttons, which
+     * add or remove items from the ListView displaying the user's input.
+     */
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.addRecipeSubmitButton);
         EditText title = (EditText) view.findViewById(R.id.Title);
@@ -423,7 +468,11 @@ public class editRecipeFragment extends Fragment {
                 user.put("Image", R.drawable.defaultfood);
 
 
-
+                /**
+                 * This method checks if the "Fruits" category is selected and updates or adds the recipe accordingly in the Firebase database.
+                 * If the recipe already exists in the "Fruits" category, it updates the existing data, otherwise it adds the new recipe data.
+                 * each category follows
+                 */
                 if (fruit.isChecked()){
                     db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                         @Override

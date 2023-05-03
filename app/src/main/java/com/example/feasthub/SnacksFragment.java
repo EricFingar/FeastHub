@@ -21,13 +21,23 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-
+/**
+ * A fragment for displaying snacks recipes in a grid view.
+ */
 public class SnacksFragment extends Fragment {
 
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String username;
+
+    /**
+     *Inflate the layout for this fragment, and retrieve the username from arguments.
+     * @param inflater The LayoutInflater object that can be used to inflate views.
+     * @param container The parent view that this fragment's UI should be attached to.
+     * @param savedInstanceState This fragment's previously saved state, if any.
+     * @return The inflated view for this fragment.
+     */
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +51,10 @@ public class SnacksFragment extends Fragment {
         return view;
     }
 
+
+    /**
+     * Sets an onClickListener for the back button and replaces the current fragment with the HomeFragment.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.snackBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +72,9 @@ public class SnacksFragment extends Fragment {
         });
     }
 
+    /**
+     * Populates the GridView with recipe cards for each snack recipe in the database.
+     */
     private void getSnacksRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.snacksGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();

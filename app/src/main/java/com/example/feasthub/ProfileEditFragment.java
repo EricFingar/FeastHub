@@ -21,7 +21,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * A fragment that allows the user to edit their profile information.
+ * Retrieves information from the Firebase Firestore database and allows users to update their profile information in the database.
+ */
 public class ProfileEditFragment extends Fragment {
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -29,6 +32,14 @@ public class ProfileEditFragment extends Fragment {
     private String dbPassword;
     private String username;
 
+
+    /**
+     * Creates and returns the view hierarchy associated with the fragment.
+     * @param inflater The layout inflater that inflates the layout
+     * @param container The parent view that the fragment's UI should be attached to
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return The inflated view for the fragment's UI
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -68,6 +79,9 @@ public class ProfileEditFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets up the back button to navigate back to the ProfileFragment
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.profileBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +99,9 @@ public class ProfileEditFragment extends Fragment {
         });
     }
 
+    /**
+     * Sets up the submit button to allow users to update their profile information in the database
+     */
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.editProfileButton);
         EditText name = (EditText) view.findViewById(R.id.profileNameEdit);

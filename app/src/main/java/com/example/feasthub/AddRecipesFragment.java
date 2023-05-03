@@ -33,6 +33,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *This class represents a fragment for adding recipes to the app.
+ */
 public class AddRecipesFragment extends Fragment{
     private View view;
     private ImageView image;
@@ -47,6 +50,13 @@ public class AddRecipesFragment extends Fragment{
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri mImageUri;
 
+    /**
+     *Called to have the fragment instantiate its user interface.
+     *@param inflater The LayoutInflater object that can be used to inflate views in the fragment.
+     *@param container The parent view that the fragment's UI should be attached to.
+     *@param savedInstanceState This fragment is being re-constructed from a previous saved state as given here.
+     *@return Returns the View for the fragment's UI, or null.
+     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +69,11 @@ public class AddRecipesFragment extends Fragment{
         return view;
     }
 
-
+    /**
+     * Sets the click listener for the submit button
+     * Gets all the data that the user has input and sends it to the database
+     * Also checks if all the required fields are filled before sending the data to the database
+     */
     private void submitButton(){
         Button submitButton = (Button) view.findViewById(R.id.addRecipeSubmitButton);
         EditText title = (EditText) view.findViewById(R.id.Title);
@@ -90,7 +104,14 @@ public class AddRecipesFragment extends Fragment{
         ImageButton addImage = (ImageButton) view.findViewById(R.id.addImageEditButton);
 
 
-
+        /**
+         *Sets up onClickListeners for various buttons in the activity
+         *@param addImage a button to add an image to the recipe
+         *@param add a button to add an ingredient to the recipe
+         *@param subtract a button to remove the last added ingredient from the recipe
+         *@param addInstruction a button to add a cooking instruction to the recipe
+         *@param removeInstruction a button to remove the last added cooking instruction from the recipe
+         */
         addImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -142,6 +163,11 @@ public class AddRecipesFragment extends Fragment{
                 instructions.setAdapter(arrayInstructions);
             }
         });
+        /**
+         *Sets an OnClickListener on the submitButton to retrieve user input from EditText fields
+         *and store them in a HashMap as key-value pairs to be added to the Firestore database.
+         *@param submitButton the button used to submit the recipe information
+         */
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -204,7 +230,12 @@ public class AddRecipesFragment extends Fragment{
 
 
 
-
+                /**
+                 *Sets the recipe data to the Firestore database and updates the UI after a user clicks the submit button.
+                 *If the Fruit checkbox is checked, the recipe data will be added to the "Fruits" collection in the user's recipe data.
+                 *If the operation is successful, the UI components will be cleared and a success message will be displayed.
+                 *If the operation fails, an error message will be displayed.
+                 */
                 if (fruit.isChecked()){
                     db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection("Fruits").document(recipeTitle).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

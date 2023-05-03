@@ -21,7 +21,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-
+/**
+ * A fragment that displays the user's favorite recipes.
+ */
 public class FavoriteFragment extends Fragment {
 
     private View view;
@@ -29,6 +31,14 @@ public class FavoriteFragment extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String username;
+    /**
+     *Inflates the layout for this fragment and sets the username value to the current user's username.
+     * @param inflater the LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container the parent view that the fragment UI should be attached to
+     * @param savedInstanceState saved state of the fragment
+     * @return the view for the fragment's UI
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,6 +51,10 @@ public class FavoriteFragment extends Fragment {
         return view;
     }
 
+
+    /**
+     * Sets up the back button to return to the home screen.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.searchBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +72,9 @@ public class FavoriteFragment extends Fragment {
         });
     }
 
+    /**
+     * Retrieves the user's favorite recipes from the database and displays them in a GridView.
+     */
     private void getFavoriteRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.searchRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();

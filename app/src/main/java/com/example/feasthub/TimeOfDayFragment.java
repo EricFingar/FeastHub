@@ -36,7 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * A fragment class that displays a GridView of recipe cards based on the time of day.
+ */
 public class TimeOfDayFragment extends Fragment {
 
     private View view;
@@ -46,6 +48,13 @@ public class TimeOfDayFragment extends Fragment {
 
     private String username;
 
+    /**
+     *Called to have the fragment instantiate its user interface view.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return the inflated view of the fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,6 +67,9 @@ public class TimeOfDayFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This method sets up the functionality of the back button by replacing the current fragment with the HomeFragment.
+     */
     private void backButton() {
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.timeOfDayBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +87,9 @@ public class TimeOfDayFragment extends Fragment {
         });
     }
 
+    /**
+     * This method retrieves the recipe data from Firestore based on the current time of day and displays them in a GridView.
+     */
     private void getTODRecipeCard() {
 
         GridView recipeCards = (GridView) view.findViewById(R.id.TODGrid);

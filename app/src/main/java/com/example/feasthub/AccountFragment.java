@@ -25,7 +25,14 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
+/**
 
+ This class represents the account fragment that is displayed when the user navigates to their account page.
+
+ It contains buttons to navigate to the user's recipes and edit their profile, a search bar to search for recipes,
+
+ and displays a grid of the user's saved recipes.
+ */
 public class AccountFragment extends Fragment {
 
     private View view;
@@ -33,6 +40,15 @@ public class AccountFragment extends Fragment {
 
     private String username;
 
+
+    /**
+     * This method inflates the account fragment layout, initializes the view and sets up the buttons,
+     * search bar, and recipe grid to display the user's saved recipes.
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container The parent view that the fragment UI should be attached to
+     * @param savedInstanceState This fragment's previously saved state
+     * @return The inflated view for the account fragment UI
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,6 +65,9 @@ public class AccountFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This method sets up the log out button to return the user to the login page.
+     */
     private void logout(){
         Button logout = (Button) view.findViewById(R.id.logOutButton);
 
@@ -62,6 +81,9 @@ public class AccountFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets up the "My Recipes" button to navigate to the user's saved recipes page when clicked.
+     */
     private void myRecipesButton(){
         ImageButton myRecipes_btn = (ImageButton) view.findViewById(R.id.myRecipesButton);
         myRecipes_btn.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +100,9 @@ public class AccountFragment extends Fragment {
             }
         });
     }
-
+    /**
+     * This method sets up the "Edit Account" button to navigate to the user's profile page when clicked.
+     */
     private void editAccountButton(){
         Button editAccount_btn = (Button) view.findViewById(R.id.accountButton);
         editAccount_btn.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +120,9 @@ public class AccountFragment extends Fragment {
         });
     }
 
+    /**
+     * This method sets up the search bar to search for recipes based on user input and navigate to the search results page when enter is clicked.
+     */
     private void search(){
         EditText searchInput = (EditText) view.findViewById(R.id.searchbr);
 
@@ -120,6 +147,10 @@ public class AccountFragment extends Fragment {
 
     }
 
+    /**
+     * This method sets up the recipe grid view for the user's personal account page
+     * by populating it with recipe cards for each of the user's saved recipes in different categories.
+     */
     private void getMyRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.accountMyRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();

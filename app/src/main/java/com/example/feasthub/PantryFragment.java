@@ -22,13 +22,26 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * This class represents a fragment that displays a list of recipes for each category
+ * (fruits, grains, vegetables, protein) that are stored in the Firestore database.
+ * The class extends Fragment.
+ */
 public class PantryFragment extends Fragment {
 
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String username;
+
+
+    /**
+     * Creates and returns the view hierarchy associated with the fragment.
+     * @param inflater Layout inflater
+     * @param container View group container
+     * @param savedInstanceState Saved instance state
+     * @return Inflated view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +58,12 @@ public class PantryFragment extends Fragment {
         return view;
     }
 
+
+    /**
+     * Retrieves the recipes under the category "Fruits" from the Firestore database, displays them in a list view,
+     * and sets an item click listener that will open a recipe details fragment when an item is clicked.
+     * all other categories follow
+     */
     private void getFruitRecipe() {
         ListView fruitListView = (ListView) view.findViewById(R.id.fruitList);
         List<String> ids = new ArrayList<>();

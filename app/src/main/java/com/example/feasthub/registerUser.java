@@ -31,6 +31,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A fragment to register a new user to the application.
+ */
 public class registerUser extends Fragment {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -41,6 +44,14 @@ public class registerUser extends Fragment {
     private String password;
     private Integer phoneNumber;
 
+    /**
+     * Creates and returns the view hierarchy associated with the fragment.
+     * @param inflater the LayoutInflater object that can be used to inflate any views in the fragment
+     * @param container the parent view that the fragment's UI should be attached to
+     * @param savedInstanceState the saved state of the fragment
+     * @return the view hierarchy associated with the fragment
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,6 +77,10 @@ public class registerUser extends Fragment {
         return view;
     }
 
+    /**
+     * Handles the registration of a new user by retrieving the user details entered by the user,
+     * validating the inputs, and adding the user to the Firebase Firestore database.
+     */
     private void handleRegisterUser(){
         EditText name = (EditText) view.findViewById(R.id.nameInput);
         EditText bio = (EditText) view.findViewById(R.id.enterBioInput);

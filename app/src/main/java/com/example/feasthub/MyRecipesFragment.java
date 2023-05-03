@@ -20,13 +20,27 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
-
+/**
+ * MyRecipesFragment class extends Fragment and shows the list of the recipes created by the user.
+ * It gets the recipes of breakfast, lunch, dinner and snacks from Firestore and displays in GridView.
+ * When a recipe is clicked, it opens the recipe details fragment.
+ */
 public class MyRecipesFragment extends Fragment {
 
     private View view;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private String username;
+
+    /**
+     *onCreateView is called when the fragment is created.
+     * It inflates the fragment_my_recipes layout and sets up the GridView with the recipes.
+     * It sets up a click listener on the back button which takes the user back to the Account Fragment
+     * @param inflater Layout inflater
+     * @param container View group container
+     * @param savedInstanceState Saved instance state
+     * @return Inflated view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +54,10 @@ public class MyRecipesFragment extends Fragment {
         return view;
     }
 
+    /**
+     * backButton is a private method that sets up a click listener on the back button.
+     * When the button is clicked, it takes the user back to the Account Fragment.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.recentBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +75,11 @@ public class MyRecipesFragment extends Fragment {
         });
     }
 
+    /**
+     * getMyRecipeCard is a private method that gets the recipes from Firestore and sets up the recipe cards in the GridView.
+     * It gets the recipes of breakfast, lunch, dinner and snacks and sets up a recipeGVAdapter for each of them.
+     * When a recipe card is clicked, it opens the recipe details fragment.
+     */
     private void getMyRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.myRecipeGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
@@ -75,6 +98,10 @@ public class MyRecipesFragment extends Fragment {
             }
         });
 
+        /**
+         * Sets an OnItemClickListener to the recipeCards GridView that listens for when an item in the GridView is clicked.
+         * When an item is clicked, a recipeDetailsFragment is created and populated with information about the clicked recipe
+         */
         recipeCards.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view1, int i, long l) {

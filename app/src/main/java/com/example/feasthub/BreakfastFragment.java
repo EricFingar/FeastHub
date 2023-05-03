@@ -28,12 +28,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+/**
+ * A fragment for displaying breakfast recipes in a grid view.
+ */
 public class BreakfastFragment extends Fragment {
 
     private View view;
     private String name;
     private String username;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    /**
+     *Inflate the layout for this fragment, and retrieve the username from arguments.
+     * @param inflater The LayoutInflater object that can be used to inflate views.
+     * @param container The parent view that this fragment's UI should be attached to.
+     * @param savedInstanceState This fragment's previously saved state, if any.
+     * @return The inflated view for this fragment.
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,6 +56,9 @@ public class BreakfastFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Sets an onClickListener for the back button and replaces the current fragment with the HomeFragment.
+     */
     private void backButton(){
         ImageButton back_btn = (ImageButton) view.findViewById(R.id.breakfastBackButton);
         back_btn.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +77,9 @@ public class BreakfastFragment extends Fragment {
 
     }
 
+    /**
+     * Populates the GridView with recipe cards for each breakfast recipe in the database.
+     */
     private void getBreakfastRecipeCard(){
         GridView recipeCards = (GridView) view.findViewById(R.id.breakfastGrid);
         ArrayList<recipeModel> recipeModelArrayList = new ArrayList<recipeModel>();
