@@ -52,9 +52,9 @@
             android:layout_marginEnd="101dp"
             android:ems="10"
             android:fontFamily="@font/tinos"
-            android:textColorHint="@color/black"
-            android:hint="Comfirm New Password"
+            android:hint="Confirm New Password"
             android:inputType="textPassword"
+            android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/newPasswordInput" />

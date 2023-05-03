@@ -2,12 +2,7 @@ package com.example.feasthub;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.hardware.camera2.CameraDevice;
-import android.hardware.camera2.CameraManager;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -15,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +87,7 @@ public class AddRecipesFragment extends Fragment{
         EditText hr = (EditText) view.findViewById(R.id.cookTimeInputHR);
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
-        ImageButton addImage = (ImageButton) view.findViewById(R.id.addImageButton);
+        ImageButton addImage = (ImageButton) view.findViewById(R.id.addImageEditButton);
 
 
 

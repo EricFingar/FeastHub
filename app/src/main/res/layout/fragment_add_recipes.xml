@@ -365,7 +365,7 @@
             android:layout_marginTop="8dp"
             android:ems="10"
             android:hint="Title of the meal"
-            android:inputType="textMultiLine"
+            android:inputType="text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addBioTitle3" />
 
@@ -382,7 +382,7 @@
             app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
         <ImageButton
-            android:id="@+id/addImageButton"
+            android:id="@+id/addImageEditButton"
             android:layout_width="32dp"
             android:layout_height="35dp"
             android:layout_marginStart="20dp"
@@ -403,7 +403,7 @@
             android:fontFamily="@font/tinos"
             android:text="@string/add_image_of_the_recipe"
             android:textColor="@color/black"
-            app:layout_constraintStart_toEndOf="@+id/addImageButton"
+            app:layout_constraintStart_toEndOf="@+id/addImageEditButton"
             app:layout_constraintTop_toBottomOf="@+id/addRecipeTitle3" />
 
         <TextView

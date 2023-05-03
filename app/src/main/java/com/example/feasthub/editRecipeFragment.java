@@ -1,5 +1,9 @@
 package com.example.feasthub;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,8 +31,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.checkerframework.common.value.qual.StringVal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,6 +73,9 @@ public class editRecipeFragment extends Fragment {
 
     private String username;
 
+    private static final int PICK_IMAGE_REQUEST = 1;
+    private Uri mImageUri;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,6 +117,7 @@ public class editRecipeFragment extends Fragment {
         EditText hr = (EditText) view.findViewById(R.id.cookTimeInputHR);
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
+
 
         db.collection("Login").document("User").collection(username).document("userInfo").collection("Recipes").document("Categories").collection(collectionName).document(recipeName).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -304,9 +311,18 @@ public class editRecipeFragment extends Fragment {
         EditText hr = (EditText) view.findViewById(R.id.cookTimeInputHR);
         EditText min = (EditText) view.findViewById(R.id.cookTimeInputMin);
         EditText sec = (EditText) view.findViewById(R.id.cookTimeInputSec);
+        ImageButton addImage = (ImageButton) view.findViewById(R.id.addImageEditButton);
+
+        addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, PICK_IMAGE_REQUEST);
 
 
-
+            }
+        });
 
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -802,6 +818,16 @@ public class editRecipeFragment extends Fragment {
 
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        TextView addImageText = (TextView) view.findViewById(R.id.addImageTitle);
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+                && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+            addImageText.setText(R.string.imageSaved);
 
+            // Do something with the selected image URI
+        }
+    }
 
 }
