@@ -135,7 +135,7 @@ public class SearchFragment extends Fragment {
                         if(document.exists()) {
                             if(document.getId().contains(searchWord)) {
                                 String id = document.getId();
-                                recipeModelArrayList.add(new recipeModel(id, R.drawable.lunch));
+                                recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                             }
                         }
                     }
@@ -154,7 +154,7 @@ public class SearchFragment extends Fragment {
                         if(document.exists()) {
                             if(document.getId().contains(searchWord)) {
                                 String id = document.getId();
-                                recipeModelArrayList.add(new recipeModel(id, R.drawable.dinner));
+                                recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                             }
                         }
                     }
@@ -173,7 +173,7 @@ public class SearchFragment extends Fragment {
                         if(document.exists()) {
                             if(document.getId().contains(searchWord)) {
                                 String id = document.getId();
-                                recipeModelArrayList.add(new recipeModel(id, R.drawable.snacks));
+                                recipeModelArrayList.add(new recipeModel(id, R.drawable.defaultfood));
                             }
                         }
                     }
